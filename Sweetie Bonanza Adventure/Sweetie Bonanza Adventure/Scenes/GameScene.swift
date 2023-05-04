@@ -6,104 +6,110 @@
 //
 
 import SpriteKit
-import GameplayKit
 
-class GameScene: SKScene {
+class GameScene: Scene {
+    let level: Int
+    var lifesCount = SKLabelNode()
     
-    var entities = [GKEntity]()
-    var graphs = [String : GKGraph]()
-    
-    private var lastUpdateTime : TimeInterval = 0
-    private var label : SKLabelNode?
-    private var spinnyNode : SKShapeNode?
-    
-    override func sceneDidLoad() {
-
-        self.lastUpdateTime = 0
-        
-        // Get label node from scene and store it for use later
-        self.label = self.childNode(withName: "//helloLabel") as? SKLabelNode
-        if let label = self.label {
-            label.alpha = 0.0
-            label.run(SKAction.fadeIn(withDuration: 2.0))
-        }
-        
-        // Create shape node to use during mouse interaction
-        let w = (self.size.width + self.size.height) * 0.05
-        self.spinnyNode = SKShapeNode.init(rectOf: CGSize.init(width: w, height: w), cornerRadius: w * 0.3)
-        
-        if let spinnyNode = self.spinnyNode {
-            spinnyNode.lineWidth = 2.5
-            
-            spinnyNode.run(SKAction.repeatForever(SKAction.rotate(byAngle: CGFloat(Double.pi), duration: 1)))
-            spinnyNode.run(SKAction.sequence([SKAction.wait(forDuration: 0.5),
-                                              SKAction.fadeOut(withDuration: 0.5),
-                                              SKAction.removeFromParent()]))
-        }
+    init(size: CGSize, gameController: GameViewController, level: Int) {
+        self.level = level
+        super.init(size: size, gameController: gameController)
     }
     
-    
-    func touchDown(atPoint pos : CGPoint) {
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.green
-            self.addChild(n)
-        }
-    }
-    
-    func touchMoved(toPoint pos : CGPoint) {
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.blue
-            self.addChild(n)
-        }
-    }
-    
-    func touchUp(atPoint pos : CGPoint) {
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.red
-            self.addChild(n)
-        }
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let label = self.label {
-            label.run(SKAction.init(named: "Pulse")!, withKey: "fadeInOut")
+        for touch in touches {
+            if let node = atPoint(touch.location(in: self)) as? SKSpriteNode {
+                switch node.name {
+                    case Resources.Buttons.menuButton:
+                        gameController.menuButtonPressed()
+                    case Resources.Buttons.soundButton:
+                        gameController.soundButtonPressed()
+                    case Resources.Buttons.bigRestartButton:
+                        gameController.restartButtonPressed(level: level)
+                    default: break
+                }
+            }
+        }
+    }
+        
+    override func setupUI() {
+        setBackground(with: Resources.Backgrounds.gameBackground)
+        
+        let tilesBoard = SKSpriteNode(imageNamed: "levelBoard" + String(level))
+        if let size = tilesBoard.texture?.size() {
+            tilesBoard.size = CGSize(width: size.width * 0.55, height: size.height * 0.55)
+        }
+        tilesBoard.position = CGPoint(x: frame.midX, y: frame.midY - 30)
+        addChild(tilesBoard)
+        
+        let tileMiddleBackground = SKSpriteNode(imageNamed: Resources.Tiles.tileBackground)
+        tileMiddleBackground.name = Resources.Tiles.tileBackground + String(level+3/2)
+        if let size = tileMiddleBackground.texture?.size() {
+            tileMiddleBackground.size = CGSize(width: size.width * 1.7, height: size.height * 1.7)
+        }
+        tileMiddleBackground.position = CGPoint(x: tilesBoard.frame.midX, y: tilesBoard.frame.maxY + tileMiddleBackground.size.height / 2 + 10)
+        addChild(tileMiddleBackground)
+        
+        for i in 1...level+3 {
+            let tileBackground = SKSpriteNode(imageNamed: Resources.Tiles.tileBackground)
+            tileBackground.name = Resources.Tiles.tileBackground + String(i)
+            if let size = tileBackground.texture?.size() {
+                tileBackground.size = CGSize(width: size.width * 1.7, height: size.height * 1.7)
+            }
+//            if level+4 % 2 == 0 {
+//                print("even")
+//            } else {
+            if i % 2 == 0 || i == 0 {
+                tileBackground.position = CGPoint(x: tileMiddleBackground.frame.midX + CGFloat(i^50), y: tileMiddleBackground.position.y)
+            } else {
+                tileBackground.position = CGPoint(x: tileMiddleBackground.frame.midX + CGFloat(i^50), y: tileMiddleBackground.position.y)
+            }
+//            }
+            tileBackground.zPosition = 1
+            addChild(tileBackground)
         }
         
-        for t in touches { self.touchDown(atPoint: t.location(in: self)) }
-    }
-    
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchMoved(toPoint: t.location(in: self)) }
-    }
-    
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchUp(atPoint: t.location(in: self)) }
-    }
-    
-    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchUp(atPoint: t.location(in: self)) }
-    }
-    
-    
-    override func update(_ currentTime: TimeInterval) {
-        // Called before each frame is rendered
+        let menu = SKSpriteNode(imageNamed: Resources.Buttons.menuButton)
+        menu.name = Resources.Buttons.menuButton
+        menu.size = CGSize(width: 69.3, height: 69.3)
+        menu.position = CGPoint(x: frame.minX + 100, y: frame.maxY - 60)
+        addChild(menu)
         
-        // Initialize _lastUpdateTime if it has not already been
-        if (self.lastUpdateTime == 0) {
-            self.lastUpdateTime = currentTime
+        soundButton = SKSpriteNode(imageNamed: gameController.isSoundMuted ? Resources.Buttons.unmuteSoundButton : Resources.Buttons.soundButton)
+        soundButton.name = Resources.Buttons.soundButton
+        soundButton.size = menu.size
+        soundButton.position = CGPoint(x: menu.position.x + 75, y: menu.position.y)
+        addChild(soundButton)
+        
+        let lifesLabel = SKSpriteNode(imageNamed: Resources.Labels.lifesLabel)
+        lifesLabel.size = CGSize(width: menu.size.width * 2 + 6, height: menu.size.height)
+        lifesLabel.position = CGPoint(x: menu.frame.maxX + 6, y: menu.position.y - 75)
+        addChild(lifesLabel)
+        
+        lifesCount = SKLabelNode(text: String(gameController.lifesCount))
+        lifesCount.fontName = Resources.Fonts.RifficFree_Bold
+        lifesCount.fontSize = 45
+        lifesCount.horizontalAlignmentMode = .right
+        lifesCount.position = CGPoint(x: lifesLabel.frame.maxX - 15, y: lifesLabel.frame.midY - 18)
+        lifesCount.zPosition = 1
+        addChild(lifesCount)
+        
+        let restartButton = SKSpriteNode(imageNamed: Resources.Buttons.bigRestartButton)
+        if let size = restartButton.texture?.size() {
+            restartButton.size = CGSize(width: size.width * 1.3, height: size.height * 1.3)
         }
+        restartButton.name = Resources.Buttons.bigRestartButton
+        restartButton.position = CGPoint(x: tilesBoard.frame.maxX + 100, y: frame.midY)
+        addChild(restartButton)
         
-        // Calculate time since last update
-        let dt = currentTime - self.lastUpdateTime
-        
-        // Update entities
-        for entity in self.entities {
-            entity.update(deltaTime: dt)
-        }
-        
-        self.lastUpdateTime = currentTime
+        let levelLabel = SKLabelNode(text: "LVL \(level)")
+        levelLabel.fontName = Resources.Fonts.RifficFree_Bold
+        levelLabel.fontSize = 50
+        levelLabel.position = CGPoint(x: restartButton.frame.midX, y: restartButton.frame.midY - 170)
+        addChild(levelLabel)
     }
 }

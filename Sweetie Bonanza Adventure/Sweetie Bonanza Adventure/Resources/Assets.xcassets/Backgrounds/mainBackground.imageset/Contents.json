@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "menu&shopBackground.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "level5Setup.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

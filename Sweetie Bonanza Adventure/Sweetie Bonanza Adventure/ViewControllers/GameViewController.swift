@@ -5,51 +5,126 @@
 //  Created by Artour Ilyasov on 03.05.2023.
 //
 
-import UIKit
 import SpriteKit
-import GameplayKit
 
 class GameViewController: UIViewController {
+    // MARK: Game state & settings
+    var isSoundMuted = false {
+        didSet {
+            let soundImage = isSoundMuted ? Resources.Buttons.unmuteSoundButton : Resources.Buttons.soundButton
+            menuScene.soundButton.texture = SKTexture(imageNamed: soundImage)
+            dailyBonusScene.soundButton.texture = SKTexture(imageNamed: soundImage)
+            storeScene.soundButton.texture = SKTexture(imageNamed: soundImage)
+            gameScene.soundButton.texture = SKTexture(imageNamed: soundImage)
+            winScene.soundButton.texture = SKTexture(imageNamed: soundImage)
+            loseScene.soundButton.texture = SKTexture(imageNamed: soundImage)
+        }
+    }
+    var lifesCount = 0 {
+        didSet {
+            menuScene.lifesCount.text = String(lifesCount)
+            dailyBonusScene.lifesCount.text = String(lifesCount)
+            storeScene.lifesCount.text = String(lifesCount)
+        }
+    }
+    var coinsCount = 0 {
+        didSet {
+            menuScene.coinsCount.text = String(coinsCount)
+            dailyBonusScene.coinsCount.text = String(coinsCount)
+            storeScene.coinsCount.text = String(coinsCount)
+        }
+    }
+    var availableLevel = 1 {
+        didSet {
+            if availableLevel < 1 {
+                availableLevel = oldValue
+            }
+        }
+    }
+    var lastPickupBonus: Date?
+    
+    // MARK: Scenes
+    private lazy var menuScene = MenuScene(size: view.bounds.size, gameController: self)
+    private lazy var gameScene = GameScene(size: view.bounds.size, gameController: self, level: availableLevel)
+    private lazy var storeScene = StoreScene(size: view.bounds.size, gameController: self)
+    private lazy var dailyBonusScene = DailyBonusScene(size: view.bounds.size, gameController: self)
+    private lazy var winScene = WinScene(size: view.bounds.size, gameController: self, level: availableLevel)
+    private lazy var loseScene = LoseScene(size: view.bounds.size, gameController: self, level: availableLevel)
+    private weak var currentScene: Scene!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Load 'GameScene.sks' as a GKScene. This provides gameplay related content
-        // including entities and graphs.
-        if let scene = GKScene(fileNamed: "GameScene") {
-            
-            // Get the SKScene from the loaded GKScene
-            if let sceneNode = scene.rootNode as! GameScene? {
-                
-                // Copy gameplay related content over to the scene
-                sceneNode.entities = scene.entities
-                sceneNode.graphs = scene.graphs
-                
-                // Set the scale mode to scale to fit the window
-                sceneNode.scaleMode = .aspectFill
-                
-                // Present the scene
-                if let view = self.view as! SKView? {
-                    view.presentScene(sceneNode)
-                    
-                    view.ignoresSiblingOrder = true
-                    
-                    view.showsFPS = true
-                    view.showsNodeCount = true
-                }
-            }
+        setupGame()
+        setupSKView()
+    }
+    
+    func saveGameSetup() {
+        UserDefaults.standard.set(lifesCount, forKey: Resources.UserDefaultKeys.lifesCount)
+        UserDefaults.standard.set(coinsCount, forKey: Resources.UserDefaultKeys.coinsCount)
+        UserDefaults.standard.set(availableLevel, forKey: Resources.UserDefaultKeys.availableLevel)
+        UserDefaults.standard.set(lastPickupBonus, forKey: Resources.UserDefaultKeys.lastPickupBonus)
+    }
+    
+    func soundButtonPressed() {
+        isSoundMuted.toggle()
+    }
+    
+    func giftButtonPressed() {
+        presentCustomScene(dailyBonusScene)
+    }
+    
+    func newGameButtonPressed() {
+        gameScene = GameScene(size: view.bounds.size, gameController: self, level: 1)
+        presentCustomScene(gameScene)
+    }
+    
+    func continueButtonPressed() {
+        presentCustomScene(gameScene)
+    }
+    
+    func shopButtonPressed() {
+        presentCustomScene(storeScene)
+    }
+    
+    func menuButtonPressed() {
+        presentCustomScene(menuScene)
+    }
+    
+    func restartButtonPressed(level: Int) {
+        gameScene = GameScene(size: view.bounds.size, gameController: self, level: level)
+        presentCustomScene(gameScene)
+    }
+    
+    func continueToWinButtonPressed(level: Int) {
+        if level <= 6 {
+            gameScene = GameScene(size: view.bounds.size, gameController: self, level: level+1)
+            presentCustomScene(gameScene)
         }
     }
-
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        if UIDevice.current.userInterfaceIdiom == .phone {
-            return .allButUpsideDown
-        } else {
-            return .all
-        }
+    
+    private func setupSKView() {
+        let skView = SKView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height))
+        skView.showsNodeCount = true
+        skView.ignoresSiblingOrder = true
+        skView.showsFPS = true
+        self.view = skView
+        currentScene = menuScene
+        skView.presentScene(currentScene)
     }
-
-    override var prefersStatusBarHidden: Bool {
-        return true
+    
+    private func setupGame() {
+        lifesCount = UserDefaults.standard.integer(forKey: Resources.UserDefaultKeys.lifesCount)
+        coinsCount = UserDefaults.standard.integer(forKey: Resources.UserDefaultKeys.coinsCount)
+        availableLevel = UserDefaults.standard.integer(forKey: Resources.UserDefaultKeys.availableLevel)
+        lastPickupBonus = UserDefaults.standard.object(forKey: Resources.UserDefaultKeys.lastPickupBonus) as? Date
+    }
+    
+    private func presentCustomScene(_ scene: Scene) {
+        if let view = view as? SKView {
+            currentScene.removeAllChildren()
+            currentScene = scene
+            view.presentScene(currentScene)
+        }
     }
 }

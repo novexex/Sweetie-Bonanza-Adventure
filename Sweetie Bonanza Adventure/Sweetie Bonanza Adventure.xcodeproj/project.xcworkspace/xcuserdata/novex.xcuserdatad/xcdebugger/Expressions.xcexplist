@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "GameViewController.soundButtonPressed():GameViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "currentScene.name">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "GameViewController.presentCustomScene(_:):GameViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "currentScene.name">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "DailyBonusScene.claimProcessing():DailyBonusScene.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "claimAmount.count">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

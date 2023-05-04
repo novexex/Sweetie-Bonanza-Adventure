@@ -8,25 +8,36 @@
 
 /* Begin PBXBuildFile section */
 		EB0639BF2A0274F7005AC3DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0639BE2A0274F7005AC3DC /* AppDelegate.swift */; };
-		EB0639C12A0274F7005AC3DC /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = EB0639C02A0274F7005AC3DC /* GameScene.sks */; };
-		EB0639C32A0274F7005AC3DC /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = EB0639C22A0274F7005AC3DC /* Actions.sks */; };
 		EB0639C52A0274F7005AC3DC /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0639C42A0274F7005AC3DC /* GameScene.swift */; };
 		EB0639C72A0274F7005AC3DC /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0639C62A0274F7005AC3DC /* GameViewController.swift */; };
-		EB0639CA2A0274F7005AC3DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB0639C82A0274F7005AC3DC /* Main.storyboard */; };
 		EB0639CC2A0274F8005AC3DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB0639CB2A0274F8005AC3DC /* Assets.xcassets */; };
 		EB0639CF2A0274F8005AC3DC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB0639CD2A0274F8005AC3DC /* LaunchScreen.storyboard */; };
+		EB0639DD2A02BC63005AC3DC /* BaseSceneClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0639DC2A02BC63005AC3DC /* BaseSceneClass.swift */; };
+		EB0639DF2A0316EC005AC3DC /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0639DE2A0316EC005AC3DC /* MenuScene.swift */; };
+		EB0639E32A031727005AC3DC /* DailyBonusScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0639E22A031727005AC3DC /* DailyBonusScene.swift */; };
+		EB0639E52A03173D005AC3DC /* WinScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0639E42A03173D005AC3DC /* WinScene.swift */; };
+		EB0639E72A031743005AC3DC /* LoseScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0639E62A031743005AC3DC /* LoseScene.swift */; };
+		EB0639EA2A031836005AC3DC /* RifficFree-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EB0639E92A031836005AC3DC /* RifficFree-Bold.ttf */; };
+		EB063A162A034544005AC3DC /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB063A152A034544005AC3DC /* Enums.swift */; };
+		EB063A1A2A039561005AC3DC /* StoreScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB063A192A039561005AC3DC /* StoreScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		EB0639BB2A0274F7005AC3DC /* Sweetie Bonanza Adventure.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sweetie Bonanza Adventure.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB0639BE2A0274F7005AC3DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		EB0639C02A0274F7005AC3DC /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
-		EB0639C22A0274F7005AC3DC /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
 		EB0639C42A0274F7005AC3DC /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		EB0639C62A0274F7005AC3DC /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
-		EB0639C92A0274F7005AC3DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EB0639CB2A0274F8005AC3DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EB0639CE2A0274F8005AC3DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		EB0639DC2A02BC63005AC3DC /* BaseSceneClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSceneClass.swift; sourceTree = "<group>"; };
+		EB0639DE2A0316EC005AC3DC /* MenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
+		EB0639E22A031727005AC3DC /* DailyBonusScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyBonusScene.swift; sourceTree = "<group>"; };
+		EB0639E42A03173D005AC3DC /* WinScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinScene.swift; sourceTree = "<group>"; };
+		EB0639E62A031743005AC3DC /* LoseScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoseScene.swift; sourceTree = "<group>"; };
+		EB0639E92A031836005AC3DC /* RifficFree-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RifficFree-Bold.ttf"; sourceTree = "<group>"; };
+		EB063A122A033938005AC3DC /* Sweetie-Bonanza-Adventure-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Sweetie-Bonanza-Adventure-Info.plist"; path = "Sweetie Bonanza Adventure/Resources/Sweetie-Bonanza-Adventure-Info.plist"; sourceTree = SOURCE_ROOT; };
+		EB063A152A034544005AC3DC /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		EB063A192A039561005AC3DC /* StoreScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,8 +70,8 @@
 		EB0639BD2A0274F7005AC3DC /* Sweetie Bonanza Adventure */ = {
 			isa = PBXGroup;
 			children = (
+				EB0639DB2A02BC54005AC3DC /* Helpers */,
 				EB0639DA2A02754B005AC3DC /* Application */,
-				EB0639D52A027515005AC3DC /* Sketch */,
 				EB0639D82A027538005AC3DC /* Scenes */,
 				EB0639D92A027540005AC3DC /* ViewControllers */,
 				EB0639D62A027523005AC3DC /* Storyboards */,
@@ -69,19 +80,9 @@
 			path = "Sweetie Bonanza Adventure";
 			sourceTree = "<group>";
 		};
-		EB0639D52A027515005AC3DC /* Sketch */ = {
-			isa = PBXGroup;
-			children = (
-				EB0639C02A0274F7005AC3DC /* GameScene.sks */,
-				EB0639C22A0274F7005AC3DC /* Actions.sks */,
-			);
-			path = Sketch;
-			sourceTree = "<group>";
-		};
 		EB0639D62A027523005AC3DC /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				EB0639C82A0274F7005AC3DC /* Main.storyboard */,
 				EB0639CD2A0274F8005AC3DC /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
@@ -90,7 +91,9 @@
 		EB0639D72A02752D005AC3DC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				EB0639E82A031823005AC3DC /* Fonts */,
 				EB0639CB2A0274F8005AC3DC /* Assets.xcassets */,
+				EB063A122A033938005AC3DC /* Sweetie-Bonanza-Adventure-Info.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -98,7 +101,12 @@
 		EB0639D82A027538005AC3DC /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				EB0639DE2A0316EC005AC3DC /* MenuScene.swift */,
+				EB0639E22A031727005AC3DC /* DailyBonusScene.swift */,
+				EB063A192A039561005AC3DC /* StoreScene.swift */,
 				EB0639C42A0274F7005AC3DC /* GameScene.swift */,
+				EB0639E42A03173D005AC3DC /* WinScene.swift */,
+				EB0639E62A031743005AC3DC /* LoseScene.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -117,6 +125,23 @@
 				EB0639BE2A0274F7005AC3DC /* AppDelegate.swift */,
 			);
 			path = Application;
+			sourceTree = "<group>";
+		};
+		EB0639DB2A02BC54005AC3DC /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				EB0639DC2A02BC63005AC3DC /* BaseSceneClass.swift */,
+				EB063A152A034544005AC3DC /* Enums.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		EB0639E82A031823005AC3DC /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				EB0639E92A031836005AC3DC /* RifficFree-Bold.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,11 +202,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB0639CA2A0274F7005AC3DC /* Main.storyboard in Resources */,
-				EB0639C12A0274F7005AC3DC /* GameScene.sks in Resources */,
 				EB0639CC2A0274F8005AC3DC /* Assets.xcassets in Resources */,
+				EB0639EA2A031836005AC3DC /* RifficFree-Bold.ttf in Resources */,
 				EB0639CF2A0274F8005AC3DC /* LaunchScreen.storyboard in Resources */,
-				EB0639C32A0274F7005AC3DC /* Actions.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,23 +215,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB0639E32A031727005AC3DC /* DailyBonusScene.swift in Sources */,
 				EB0639C52A0274F7005AC3DC /* GameScene.swift in Sources */,
 				EB0639C72A0274F7005AC3DC /* GameViewController.swift in Sources */,
+				EB0639DF2A0316EC005AC3DC /* MenuScene.swift in Sources */,
+				EB0639E52A03173D005AC3DC /* WinScene.swift in Sources */,
+				EB0639E72A031743005AC3DC /* LoseScene.swift in Sources */,
 				EB0639BF2A0274F7005AC3DC /* AppDelegate.swift in Sources */,
+				EB063A162A034544005AC3DC /* Enums.swift in Sources */,
+				EB063A1A2A039561005AC3DC /* StoreScene.swift in Sources */,
+				EB0639DD2A02BC63005AC3DC /* BaseSceneClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		EB0639C82A0274F7005AC3DC /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				EB0639C92A0274F7005AC3DC /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		EB0639CD2A0274F8005AC3DC /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -270,7 +292,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -324,7 +346,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -343,12 +365,12 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = N64BNPUBV4;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "$(TARGET_NAME)/Resources/Sweetie-Bonanza-Adventure-Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -356,9 +378,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "novex.Sweetie-Bonanza-Adventure";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -371,12 +396,12 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = N64BNPUBV4;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "$(TARGET_NAME)/Resources/Sweetie-Bonanza-Adventure-Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -384,9 +409,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "novex.Sweetie-Bonanza-Adventure";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
