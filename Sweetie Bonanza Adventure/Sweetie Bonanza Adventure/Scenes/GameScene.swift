@@ -77,9 +77,7 @@ class GameScene: Scene {
                 case Resources.Buttons.soundButton:
                     gameController.soundButtonPressed()
                 case Resources.Buttons.bigRestartButton:
-                    gameController.availableLevel += 1
-                        // MARK: FIX
-//                    gameController.restartButtonPressed(level: level)
+                    gameController.restartButtonPressed(level: level)
                 default: break
                 }
             }
@@ -314,8 +312,6 @@ class GameScene: Scene {
             return CGPoint(x: tilesBoard.frame.minX + 33, y: tilesBoard.frame.maxY - 35)
         case 4:
             return CGPoint(x: tilesBoard.frame.minX + 26, y: tilesBoard.frame.maxY - 26)
-        case 5:
-            return CGPoint(x: tilesBoard.frame.minX + 26, y: tilesBoard.frame.maxY - 26)
         default:
             return CGPoint()
         }
@@ -332,8 +328,6 @@ class GameScene: Scene {
             case 3:
                 returnSize = CGSize(width: size.width * 1.23, height: size.height * 1.15)
             case 4:
-                returnSize = CGSize(width: size.width * 1.11, height: size.height)
-            case 5:
                 returnSize = CGSize(width: size.width * 1.11, height: size.height)
             default: break
             }
