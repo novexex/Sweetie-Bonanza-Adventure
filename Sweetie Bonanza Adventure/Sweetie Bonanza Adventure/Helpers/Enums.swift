@@ -62,5 +62,6 @@ enum Resources {
         static let coinsCount = "coinsCount"
         static let availableLevel = "availableLevel"
         static let lastPickupBonus = "lastPickupBonus"
+        static let isFirstLaunch = "isFirstLaunch"
     }
 }

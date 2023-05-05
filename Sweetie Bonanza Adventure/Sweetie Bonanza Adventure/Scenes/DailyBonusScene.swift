@@ -44,48 +44,46 @@ class DailyBonusScene: Scene {
     override func setupUI() {
         setBackground(with: Resources.Backgrounds.dailyBonusBackground)
         
-        let menu = SKSpriteNode(imageNamed: Resources.Buttons.menuButton)
-        menu.name = Resources.Buttons.menuButton
-        menu.size = CGSize(width: 69.3, height: 69.3)
-        menu.position = CGPoint(x: frame.minX + 100, y: frame.maxY - 60)
-        addChild(menu)
+        let coinsLabel = SKSpriteNode(imageNamed: Resources.Labels.coinsLabel)
+        coinsLabel.position = CGPoint(x: frame.maxX - 155, y: frame.maxY - 60)
+        addChild(coinsLabel)
+        
+        let menuButton = SKSpriteNode(imageNamed: Resources.Buttons.menuButton)
+        menuButton.name = Resources.Buttons.menuButton
+        menuButton.size = CGSize(width: coinsLabel.size.height, height: coinsLabel.size.height)
+        menuButton.position = CGPoint(x: frame.minX + 100, y: frame.maxY - 60)
+        addChild(menuButton)
         
         soundButton = SKSpriteNode(imageNamed: gameController.isSoundMuted ? Resources.Buttons.unmuteSoundButton : Resources.Buttons.soundButton)
         soundButton.name = Resources.Buttons.soundButton
-        soundButton.size = menu.size
-        soundButton.position = CGPoint(x: menu.position.x + 75, y: menu.position.y)
+        soundButton.size = menuButton.size
+        soundButton.position = CGPoint(x: menuButton.position.x + 55, y: menuButton.position.y)
         addChild(soundButton)
         
         let lifesLabel = SKSpriteNode(imageNamed: Resources.Labels.lifesLabel)
-        lifesLabel.size = CGSize(width: menu.size.width * 2 + 6, height: menu.size.height)
-        lifesLabel.position = CGPoint(x: menu.frame.maxX + 6, y: menu.position.y - 75)
+        lifesLabel.size = CGSize(width: menuButton.size.width * 2 + 6, height: menuButton.size.height)
+        lifesLabel.position = CGPoint(x: menuButton.frame.maxX + 3, y: menuButton.position.y - 55)
         addChild(lifesLabel)
         
         lifesCount = SKLabelNode(text: String(gameController.lifesCount))
         lifesCount.fontName = Resources.Fonts.RifficFree_Bold
-        lifesCount.fontSize = 45
+        lifesCount.fontSize = 35
         lifesCount.horizontalAlignmentMode = .right
-        lifesCount.position = CGPoint(x: lifesLabel.frame.maxX - 15, y: lifesLabel.frame.midY - 18)
+        lifesCount.position = CGPoint(x: lifesLabel.frame.maxX - 12, y: lifesLabel.frame.midY - 15)
         lifesCount.zPosition = 1
         addChild(lifesCount)
         
-        let coinsLabel = SKSpriteNode(imageNamed: Resources.Labels.coinsLabel)
-        coinsLabel.size = CGSize(width: lifesLabel.size.width * 1.6, height: lifesLabel.size.height)
-        coinsLabel.position = CGPoint(x: frame.maxX - 180, y: menu.position.y)
-        addChild(coinsLabel)
-        
         coinsCount = SKLabelNode(text: String(gameController.coinsCount))
         coinsCount.fontName = Resources.Fonts.RifficFree_Bold
-        coinsCount.fontSize = 45
+        coinsCount.fontSize = 35
         coinsCount.horizontalAlignmentMode = .right
-        coinsCount.position = CGPoint(x: coinsLabel.frame.maxX - 15, y: coinsLabel.frame.midY - 18)
+        coinsCount.position = CGPoint(x: coinsLabel.frame.maxX - 12, y: coinsLabel.frame.midY - 15)
         coinsCount.zPosition = 1
         addChild(coinsCount)
         
         let claimGiftButton2 = SKSpriteNode(imageNamed: Resources.Buttons.claimGiftButton)
         claimGiftButton2.name = Resources.Buttons.claimGiftButton + "2"
-        claimGiftButton2.size = CGSize(width: claimGiftButton2.size.width * 1.2, height: claimGiftButton2.size.height * 1.2)
-        claimGiftButton2.position = CGPoint(x: frame.midX, y: frame.midY - 120)
+        claimGiftButton2.position = CGPoint(x: frame.midX, y: frame.midY - 100)
         addChild(claimGiftButton2)
         
         let claimGiftButton1 = SKSpriteNode(imageNamed: Resources.Buttons.claimGiftButton)

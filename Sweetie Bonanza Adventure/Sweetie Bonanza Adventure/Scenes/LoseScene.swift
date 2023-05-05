@@ -40,21 +40,21 @@ class LoseScene: Scene {
     override func setupUI() {
         setBackground(with: Resources.Backgrounds.loseBackground)
         
-        let menu = SKSpriteNode(imageNamed: Resources.Buttons.menuButton)
-        menu.name = Resources.Buttons.menuButton
-        menu.size = CGSize(width: 69.3, height: 69.3)
-        menu.position = CGPoint(x: frame.minX + 100, y: frame.maxY - 60)
-        addChild(menu)
+        let menuButton = SKSpriteNode(imageNamed: Resources.Buttons.menuButton)
+        menuButton.name = Resources.Buttons.menuButton
+        menuButton.size = CGSize(width: 51, height: 51)
+        menuButton.position = CGPoint(x: frame.minX + 100, y: frame.maxY - 60)
+        addChild(menuButton)
         
         soundButton = SKSpriteNode(imageNamed: gameController.isSoundMuted ? Resources.Buttons.unmuteSoundButton : Resources.Buttons.soundButton)
         soundButton.name = Resources.Buttons.soundButton
-        soundButton.size = menu.size
-        soundButton.position = CGPoint(x: menu.position.x + 75, y: menu.position.y)
+        soundButton.size = menuButton.size
+        soundButton.position = CGPoint(x: menuButton.position.x + 55, y: menuButton.position.y)
         addChild(soundButton)
         
         let restartButton = SKSpriteNode(imageNamed: Resources.Buttons.restartButton)
-        restartButton.size = menu.size
-        restartButton.position = CGPoint(x: frame.maxX - 150, y: menu.position.y)
+        restartButton.size = menuButton.size
+        restartButton.position = CGPoint(x: frame.maxX - 140, y: menuButton.position.y)
         addChild(restartButton)
         
         let buyHeartsLabel = SKSpriteNode(imageNamed: Resources.Labels.buyHeartsLabel)

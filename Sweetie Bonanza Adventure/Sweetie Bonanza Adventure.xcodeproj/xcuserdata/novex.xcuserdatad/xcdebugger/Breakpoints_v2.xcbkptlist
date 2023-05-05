@@ -14,8 +14,8 @@
             filePath = "Sweetie Bonanza Adventure/ViewControllers/GameViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -30,8 +30,8 @@
             filePath = "Sweetie Bonanza Adventure/ViewControllers/GameViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -46,8 +46,8 @@
             filePath = "Sweetie Bonanza Adventure/ViewControllers/GameViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "122"
-            endingLineNumber = "122"
+            startingLineNumber = "124"
+            endingLineNumber = "124"
             landmarkName = "setupSKView()"
             landmarkType = "7">
             <Locations>
@@ -158,8 +158,8 @@
             filePath = "Sweetie Bonanza Adventure/ViewControllers/GameViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "139"
-            endingLineNumber = "139"
+            startingLineNumber = "147"
+            endingLineNumber = "147"
             landmarkName = "presentCustomScene(_:)"
             landmarkType = "7">
             <Locations>
@@ -206,8 +206,8 @@
             filePath = "Sweetie Bonanza Adventure/Scenes/DailyBonusScene.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "110"
-            endingLineNumber = "110"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
             landmarkName = "claimProcessing(clicked:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -222,8 +222,8 @@
             filePath = "Sweetie Bonanza Adventure/Scenes/DailyBonusScene.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
             landmarkName = "claimProcessing(clicked:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -238,10 +238,42 @@
             filePath = "Sweetie Bonanza Adventure/ViewControllers/GameViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "132"
-            endingLineNumber = "132"
+            startingLineNumber = "134"
+            endingLineNumber = "134"
             landmarkName = "setupGame()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "BCF3D79D-4264-43F7-819B-E671B607DD76 - ebabb5e13d6c46b3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Sweetie_Bonanza_Adventure.GameViewController.setupGame() -&gt; ()"
+                  moduleName = "Sweetie Bonanza Adventure"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/novex/Documents/Code/GitHub/Sweetie-Bonanza-Adventure/Sweetie%20Bonanza%20Adventure/Sweetie%20Bonanza%20Adventure/ViewControllers/GameViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "135"
+                  endingLineNumber = "135"
+                  offsetFromSymbolStart = "100">
+               </Location>
+               <Location
+                  uuid = "BCF3D79D-4264-43F7-819B-E671B607DD76 - ebabb5e13d6c4694"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Sweetie_Bonanza_Adventure.GameViewController.setupGame() -&gt; ()"
+                  moduleName = "Sweetie Bonanza Adventure"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/novex/Documents/Code/GitHub/Sweetie-Bonanza-Adventure/Sweetie%20Bonanza%20Adventure/Sweetie%20Bonanza%20Adventure/ViewControllers/GameViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "136"
+                  endingLineNumber = "136"
+                  offsetFromSymbolStart = "100">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -302,8 +334,8 @@
             filePath = "Sweetie Bonanza Adventure/Scenes/GameScene.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "235"
-            endingLineNumber = "235"
+            startingLineNumber = "237"
+            endingLineNumber = "237"
             landmarkName = "isSameTileRepeatedVertically(row:col:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -334,8 +366,8 @@
             filePath = "Sweetie Bonanza Adventure/Scenes/GameScene.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "148"
-            endingLineNumber = "148"
+            startingLineNumber = "150"
+            endingLineNumber = "150"
             landmarkName = "gameOver()"
             landmarkType = "7">
          </BreakpointContent>
@@ -353,6 +385,224 @@
             startingLineNumber = "57"
             endingLineNumber = "57"
             landmarkName = "touchesBegan(_:with:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "24E66C5A-6A34-4C5D-9266-737892D2263E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Sweetie Bonanza Adventure/ViewControllers/GameViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "lifesCount"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "24E66C5A-6A34-4C5D-9266-737892D2263E - 205e8c5f4428416a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Sweetie_Bonanza_Adventure.GameViewController.lifesCount.getter : Swift.Int"
+                  moduleName = "Sweetie Bonanza Adventure"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/novex/Documents/Code/GitHub/Sweetie-Bonanza-Adventure/Sweetie%20Bonanza%20Adventure/Sweetie%20Bonanza%20Adventure/ViewControllers/GameViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "84">
+               </Location>
+               <Location
+                  uuid = "24E66C5A-6A34-4C5D-9266-737892D2263E - 6567a97abe99455e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Sweetie_Bonanza_Adventure.GameViewController.lifesCount.setter : Swift.Int"
+                  moduleName = "Sweetie Bonanza Adventure"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/novex/Documents/Code/GitHub/Sweetie-Bonanza-Adventure/Sweetie%20Bonanza%20Adventure/Sweetie%20Bonanza%20Adventure/ViewControllers/GameViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "96">
+               </Location>
+               <Location
+                  uuid = "24E66C5A-6A34-4C5D-9266-737892D2263E - d7218f363d3f6e69"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Sweetie_Bonanza_Adventure.GameViewController.lifesCount.modify : Swift.Int"
+                  moduleName = "Sweetie Bonanza Adventure"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/novex/Documents/Code/GitHub/Sweetie-Bonanza-Adventure/Sweetie%20Bonanza%20Adventure/Sweetie%20Bonanza%20Adventure/ViewControllers/GameViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "24E66C5A-6A34-4C5D-9266-737892D2263E - 67ddf1658f4b6abe"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Sweetie_Bonanza_Adventure.GameViewController.lifesCount.modify : Swift.Int with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "Sweetie Bonanza Adventure"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/novex/Documents/Code/GitHub/Sweetie-Bonanza-Adventure/Sweetie%20Bonanza%20Adventure/Sweetie%20Bonanza%20Adventure/ViewControllers/GameViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  uuid = "24E66C5A-6A34-4C5D-9266-737892D2263E - 2b10665733dcafc4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Sweetie_Bonanza_Adventure.GameViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; Sweetie_Bonanza_Adventure.GameViewController"
+                  moduleName = "Sweetie Bonanza Adventure"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/novex/Documents/Code/GitHub/Sweetie-Bonanza-Adventure/Sweetie%20Bonanza%20Adventure/Sweetie%20Bonanza%20Adventure/ViewControllers/GameViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "192">
+               </Location>
+               <Location
+                  uuid = "24E66C5A-6A34-4C5D-9266-737892D2263E - 1236668db404bedf"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Sweetie_Bonanza_Adventure.GameViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;Sweetie_Bonanza_Adventure.GameViewController&gt;"
+                  moduleName = "Sweetie Bonanza Adventure"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/novex/Documents/Code/GitHub/Sweetie-Bonanza-Adventure/Sweetie%20Bonanza%20Adventure/Sweetie%20Bonanza%20Adventure/ViewControllers/GameViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "168">
+               </Location>
+               <Location
+                  uuid = "24E66C5A-6A34-4C5D-9266-737892D2263E - 2b10665733dcafc4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Sweetie_Bonanza_Adventure.GameViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; Sweetie_Bonanza_Adventure.GameViewController"
+                  moduleName = "Sweetie Bonanza Adventure"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/novex/Documents/Code/GitHub/Sweetie-Bonanza-Adventure/Sweetie%20Bonanza%20Adventure/Sweetie%20Bonanza%20Adventure/ViewControllers/GameViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "200">
+               </Location>
+               <Location
+                  uuid = "24E66C5A-6A34-4C5D-9266-737892D2263E - 1236668db404bedf"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Sweetie_Bonanza_Adventure.GameViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;Sweetie_Bonanza_Adventure.GameViewController&gt;"
+                  moduleName = "Sweetie Bonanza Adventure"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/novex/Documents/Code/GitHub/Sweetie-Bonanza-Adventure/Sweetie%20Bonanza%20Adventure/Sweetie%20Bonanza%20Adventure/ViewControllers/GameViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "176">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D12FDA82-EAEC-47AC-8407-221EA58158F9"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Sweetie Bonanza Adventure/ViewControllers/GameViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "140"
+            endingLineNumber = "140"
+            landmarkName = "setupGame()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D12FDA82-EAEC-47AC-8407-221EA58158F9 - ebabb5e13d6c47f9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Sweetie_Bonanza_Adventure.GameViewController.setupGame() -&gt; ()"
+                  moduleName = "Sweetie Bonanza Adventure"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/novex/Documents/Code/GitHub/Sweetie-Bonanza-Adventure/Sweetie%20Bonanza%20Adventure/Sweetie%20Bonanza%20Adventure/ViewControllers/GameViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "141"
+                  endingLineNumber = "141"
+                  offsetFromSymbolStart = "1388">
+               </Location>
+               <Location
+                  uuid = "D12FDA82-EAEC-47AC-8407-221EA58158F9 - ebabb5e13d6c47f9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Sweetie_Bonanza_Adventure.GameViewController.setupGame() -&gt; ()"
+                  moduleName = "Sweetie Bonanza Adventure"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/novex/Documents/Code/GitHub/Sweetie-Bonanza-Adventure/Sweetie%20Bonanza%20Adventure/Sweetie%20Bonanza%20Adventure/ViewControllers/GameViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "141"
+                  endingLineNumber = "141"
+                  offsetFromSymbolStart = "1368">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "30E2AD61-6DA9-437C-993C-5E8A0A098F0F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Sweetie Bonanza Adventure/ViewControllers/GameViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "135"
+            endingLineNumber = "135"
+            landmarkName = "setupGame()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2153B182-7C24-4BC5-9F08-78F8348B8A64"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Sweetie Bonanza Adventure/ViewControllers/GameViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "saveGameSetup()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

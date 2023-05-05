@@ -3,10 +3,10 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "GameViewController.presentCustomScene(_:):GameViewController.swift">
+         contextName = "DailyBonusScene.claimProcessing():DailyBonusScene.swift">
          <PersistentStrings>
             <PersistentString
-               value = "currentScene.name">
+               value = "claimAmount.count">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -19,6 +19,33 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "GameViewController.lifesCount.getter:GameViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "lifesCount">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "GameViewController.presentCustomScene(_:):GameViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "currentScene.name">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "GameViewController.setupGame():GameViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "lifesCount">
+            </PersistentString>
+            <PersistentString
+               value = "isFirstLaunch">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "GameViewController.soundButtonPressed():GameViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -27,15 +54,23 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "DailyBonusScene.claimProcessing():DailyBonusScene.swift">
+         contextName = "GameViewController.getGameSetup():GameViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "GameViewController.lifesCount.setter:GameViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "claimAmount.count">
+               value = "lifesCount">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "GameViewController.getGameSetup():GameViewController.swift">
+         contextName = "GameViewController.init(nibName:bundle:):GameViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "lifesCount">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
    </ContextStates>
 </VariablesViewState>

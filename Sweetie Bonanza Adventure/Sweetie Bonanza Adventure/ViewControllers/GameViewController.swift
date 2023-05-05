@@ -43,6 +43,7 @@ class GameViewController: UIViewController {
         }
     }
     var lastPickupBonus: Date?
+    private var isFirstLaunch = 0
     
     // MARK: Scenes
     private lazy var menuScene = MenuScene(size: view.bounds.size, gameController: self)
@@ -61,6 +62,7 @@ class GameViewController: UIViewController {
     }
     
     func saveGameSetup() {
+        UserDefaults.standard.set(isFirstLaunch, forKey: Resources.UserDefaultKeys.isFirstLaunch)
         UserDefaults.standard.set(lifesCount, forKey: Resources.UserDefaultKeys.lifesCount)
         UserDefaults.standard.set(coinsCount, forKey: Resources.UserDefaultKeys.coinsCount)
         UserDefaults.standard.set(availableLevel, forKey: Resources.UserDefaultKeys.availableLevel)
@@ -109,6 +111,7 @@ class GameViewController: UIViewController {
     
     func gameOver() {
         if lifesCount == 0 {
+            loseScene = LoseScene(size: view.bounds.size, gameController: self, level: availableLevel)
             presentCustomScene(loseScene)
         } else {
             presentCustomScene(winScene)
@@ -129,10 +132,16 @@ class GameViewController: UIViewController {
     }
     
     private func setupGame() {
+        isFirstLaunch = UserDefaults.standard.integer(forKey: Resources.UserDefaultKeys.isFirstLaunch)
         lifesCount = UserDefaults.standard.integer(forKey: Resources.UserDefaultKeys.lifesCount)
         coinsCount = UserDefaults.standard.integer(forKey: Resources.UserDefaultKeys.coinsCount)
         availableLevel = UserDefaults.standard.integer(forKey: Resources.UserDefaultKeys.availableLevel)
         lastPickupBonus = UserDefaults.standard.object(forKey: Resources.UserDefaultKeys.lastPickupBonus) as? Date
+        if isFirstLaunch == 0 {
+            lifesCount = 5
+            isFirstLaunch = 1
+            saveGameSetup()
+        }
     }
     
     private func presentCustomScene(_ scene: Scene) {

@@ -77,6 +77,7 @@ class GameScene: Scene {
                 case Resources.Buttons.soundButton:
                     gameController.soundButtonPressed()
                 case Resources.Buttons.bigRestartButton:
+                    gameController.availableLevel += 1
                     gameController.restartButtonPressed(level: level)
                 default: break
                 }
@@ -89,9 +90,9 @@ class GameScene: Scene {
         
         tilesBoard = SKSpriteNode(imageNamed: "levelBoard" + String(level))
         if let size = tilesBoard.texture?.size() {
-            tilesBoard.size = CGSize(width: size.width * 0.55, height: size.height * 0.55)
+            tilesBoard.size = CGSize(width: size.width * 0.5, height: size.height * 0.5)
         }
-        tilesBoard.position = CGPoint(x: frame.midX, y: frame.midY - 30)
+        tilesBoard.position = CGPoint(x: frame.midX, y: frame.midY - 33)
         tilesBoard.zPosition = -1
         addChild(tilesBoard)
         
@@ -99,28 +100,28 @@ class GameScene: Scene {
         setTilesLine()
         setTiles()
         
-        let menu = SKSpriteNode(imageNamed: Resources.Buttons.menuButton)
-        menu.name = Resources.Buttons.menuButton
-        menu.size = CGSize(width: 69.3, height: 69.3)
-        menu.position = CGPoint(x: frame.minX + 100, y: frame.maxY - 60)
-        addChild(menu)
+        let menuButton = SKSpriteNode(imageNamed: Resources.Buttons.menuButton)
+        menuButton.name = Resources.Buttons.menuButton
+        menuButton.size = CGSize(width: 51, height: 51)
+        menuButton.position = CGPoint(x: frame.minX + 100, y: frame.maxY - 60)
+        addChild(menuButton)
         
         soundButton = SKSpriteNode(imageNamed: gameController.isSoundMuted ? Resources.Buttons.unmuteSoundButton : Resources.Buttons.soundButton)
         soundButton.name = Resources.Buttons.soundButton
-        soundButton.size = menu.size
-        soundButton.position = CGPoint(x: menu.position.x + 75, y: menu.position.y)
+        soundButton.size = menuButton.size
+        soundButton.position = CGPoint(x: menuButton.position.x + 55, y: menuButton.position.y)
         addChild(soundButton)
         
         let lifesLabel = SKSpriteNode(imageNamed: Resources.Labels.lifesLabel)
-        lifesLabel.size = CGSize(width: menu.size.width * 2 + 6, height: menu.size.height)
-        lifesLabel.position = CGPoint(x: menu.frame.maxX + 6, y: menu.position.y - 75)
+        lifesLabel.size = CGSize(width: menuButton.size.width * 2 + 6, height: menuButton.size.height)
+        lifesLabel.position = CGPoint(x: menuButton.frame.maxX + 3, y: menuButton.position.y - 55)
         addChild(lifesLabel)
         
         lifesCount = SKLabelNode(text: String(gameController.lifesCount))
         lifesCount.fontName = Resources.Fonts.RifficFree_Bold
-        lifesCount.fontSize = 45
+        lifesCount.fontSize = 35
         lifesCount.horizontalAlignmentMode = .right
-        lifesCount.position = CGPoint(x: lifesLabel.frame.maxX - 15, y: lifesLabel.frame.midY - 18)
+        lifesCount.position = CGPoint(x: lifesLabel.frame.maxX - 12, y: lifesLabel.frame.midY - 15)
         lifesCount.zPosition = 1
         addChild(lifesCount)
         
@@ -130,11 +131,12 @@ class GameScene: Scene {
         }
         restartButton.name = Resources.Buttons.bigRestartButton
         restartButton.position = CGPoint(x: tilesBoard.frame.maxX + 100, y: frame.midY)
+        restartButton.size = CGSize(width: menuButton.size.width * 2, height: menuButton.size.height * 2)
         addChild(restartButton)
         
         let levelLabel = SKLabelNode(text: "LVL \(level)")
         levelLabel.fontName = Resources.Fonts.RifficFree_Bold
-        levelLabel.fontSize = 50
+        levelLabel.fontSize = 40
         levelLabel.position = CGPoint(x: restartButton.frame.midX, y: restartButton.frame.midY - 170)
         addChild(levelLabel)
     }
@@ -181,9 +183,9 @@ class GameScene: Scene {
     private func setTilesLine() {
         let tileBackground = SKSpriteNode(imageNamed: Resources.Tiles.tileBackground)
         tileBackground.name = Resources.Tiles.tileBackground + "1"
-        tileBackground.size = getStartBackgroundSize(node: tileBackground)
+        tileBackground.size = getLineTilesBackgroundSize(node: tileBackground)
         tileBackground.zPosition = -1
-        tileBackground.position = getStartBackgroundPosition()
+        tileBackground.position = getStartLineBackgroundPosition()
         tilesBackgroundLine[0] = tileBackground
         addChild(tileBackground)
         
@@ -213,7 +215,7 @@ class GameScene: Scene {
                     tileLine.size = CGSize(width: size.width * 1.15, height: size.height * 1.15)
                 }
             } else {
-                tileLine.size = getStartLineTileSize(node: tileLine)
+                tileLine.size = getLineTileSize(node: tileLine)
             }
             tileLine.position = CGPoint(x: tilesBackgroundLine[i].frame.midX, y: tilesBackgroundLine[i].frame.midY)
             tilesLine[i] = tileLine
@@ -243,12 +245,14 @@ class GameScene: Scene {
         return false
     }
     
-    private func getStartLineTileSize(node: SKSpriteNode) -> CGSize {
+    private func getLineTileSize(node: SKSpriteNode) -> CGSize {
         var returnSize = CGSize()
         if let size = node.texture?.size() {
             switch level {
-            case 1, 2, 3:
+            case 1, 2:
                 returnSize = CGSize(width: size.width, height: size.height)
+            case 3:
+                returnSize = CGSize(width: size.width * 0.9, height: size.height * 0.9)
             case 4, 5:
                 returnSize = CGSize(width: size.width * 0.85, height: size.height * 0.85)
             case 6:
@@ -261,14 +265,16 @@ class GameScene: Scene {
         return returnSize
     }
     
-    private func getStartBackgroundSize(node: SKSpriteNode) -> CGSize {
+    private func getLineTilesBackgroundSize(node: SKSpriteNode) -> CGSize {
         var returnSize = CGSize()
         if let size = node.texture?.size() {
             switch level {
-            case 1, 2, 3:
+            case 1, 2:
                 returnSize = CGSize(width: size.width * 1.7, height: size.height * 1.7)
+            case 3:
+                returnSize = CGSize(width: size.width * 1.45, height: size.height * 1.4)
             case 4:
-                returnSize = CGSize(width: size.width * 1.4, height: size.height * 1.4)
+                returnSize = CGSize(width: size.width * 1, height: size.height * 1)
             case 5:
                 returnSize = CGSize(width: size.width * 1.37, height: size.height * 1.37)
             case 6:
@@ -281,35 +287,35 @@ class GameScene: Scene {
         return returnSize
     }
     
-    private func getStartBackgroundPosition() -> CGPoint {
+    private func getStartLineBackgroundPosition() -> CGPoint {
         switch level {
         case 1:
-            return CGPoint(x: tilesBoard.frame.minX + 95, y: tilesBoard.frame.maxY + 45)
+            return CGPoint(x: tilesBoard.frame.minX + 75, y: tilesBoard.frame.maxY + 40)
         case 2:
-            return CGPoint(x: tilesBoard.frame.minX + 60, y: tilesBoard.frame.maxY + 45)
+            return CGPoint(x: tilesBoard.frame.minX + 34, y: tilesBoard.frame.maxY + 40)
         case 3:
-            return CGPoint(x: tilesBoard.frame.minX + 15, y: tilesBoard.frame.maxY + 45)
+            return CGPoint(x: tilesBoard.frame.minX + 17, y: tilesBoard.frame.maxY + 40)
         case 4:
-            return CGPoint(x: tilesBoard.frame.minX + 15, y: tilesBoard.frame.maxY + 40)
+            return CGPoint(x: tilesBoard.frame.minX + 15, y: tilesBoard.frame.maxY + 35)
         case 5:
-            return CGPoint(x: tilesBoard.frame.minX + 24, y: tilesBoard.frame.maxY + 40)
+            return CGPoint(x: tilesBoard.frame.minX + 24, y: tilesBoard.frame.maxY + 35)
         case 6:
-            return CGPoint(x: tilesBoard.frame.minX + 15, y: tilesBoard.frame.maxY + 40)
+            return CGPoint(x: tilesBoard.frame.minX + 15, y: tilesBoard.frame.maxY + 35)
         case 7:
-            return CGPoint(x: tilesBoard.frame.minX + 11, y: tilesBoard.frame.maxY + 40)
+            return CGPoint(x: tilesBoard.frame.minX + 11, y: tilesBoard.frame.maxY + 35)
         default:
             return CGPoint()
         }
     }
     
-    private func getStartTilePosition() -> CGPoint{
+    private func getStartTilePosition() -> CGPoint {
         switch level {
         case 1:
-            return CGPoint(x: tilesBoard.frame.minX + 50, y: tilesBoard.frame.maxY - 50)
+            return CGPoint(x: tilesBoard.frame.minX + 37, y: tilesBoard.frame.maxY - 47)
         case 2:
-            return CGPoint(x: tilesBoard.frame.minX + 40, y: tilesBoard.frame.maxY - 40)
+            return CGPoint(x: tilesBoard.frame.minX + 32, y: tilesBoard.frame.maxY - 37)
         case 3:
-            return CGPoint(x: tilesBoard.frame.minX + 33, y: tilesBoard.frame.maxY - 35)
+            return CGPoint(x: tilesBoard.frame.minX + 27, y: tilesBoard.frame.maxY - 30)
         case 4:
             return CGPoint(x: tilesBoard.frame.minX + 26, y: tilesBoard.frame.maxY - 26)
         default:
@@ -322,11 +328,11 @@ class GameScene: Scene {
         if let size = node.texture?.size() {
             switch level {
             case 1:
-                returnSize = CGSize(width: size.width * 1.9, height: size.height * 1.9)
+                returnSize = CGSize(width: size.width * 1.8, height: size.height * 1.75)
             case 2:
-                returnSize = CGSize(width: size.width * 1.55, height: size.height * 1.46)
+                returnSize = CGSize(width: size.width * 1.42, height: size.height * 1.32)
             case 3:
-                returnSize = CGSize(width: size.width * 1.23, height: size.height * 1.15)
+                returnSize = CGSize(width: size.width * 1.15, height: size.height * 1.06)
             case 4:
                 returnSize = CGSize(width: size.width * 1.11, height: size.height)
             default: break
