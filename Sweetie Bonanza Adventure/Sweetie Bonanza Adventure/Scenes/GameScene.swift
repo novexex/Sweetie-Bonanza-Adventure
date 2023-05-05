@@ -92,6 +92,7 @@ class GameScene: Scene {
         if let size = tilesBoard.texture?.size() {
             tilesBoard.size = CGSize(width: size.width * 0.5, height: size.height * 0.5)
         }
+        
         tilesBoard.position = CGPoint(x: frame.midX, y: frame.midY - 33)
         tilesBoard.zPosition = -1
         addChild(tilesBoard)
@@ -103,7 +104,7 @@ class GameScene: Scene {
         let menuButton = SKSpriteNode(imageNamed: Resources.Buttons.menuButton)
         menuButton.name = Resources.Buttons.menuButton
         menuButton.size = CGSize(width: 51, height: 51)
-        menuButton.position = CGPoint(x: frame.minX + 100, y: frame.maxY - 60)
+        menuButton.position = CGPoint(x: frame.minX + 90, y: frame.maxY - 60)
         addChild(menuButton)
         
         soundButton = SKSpriteNode(imageNamed: gameController.isSoundMuted ? Resources.Buttons.unmuteSoundButton : Resources.Buttons.soundButton)
@@ -205,9 +206,9 @@ class GameScene: Scene {
             if tilesImage[i] == Resources.Tiles.bombTile {
                 if let size = tileLine.texture?.size() {
                     if level == 6 {
-                        tileLine.size = CGSize(width: size.width * 0.55, height: size.height * 0.55)
+                        tileLine.size = CGSize(width: size.width * 0.5, height: size.height * 0.5)
                     } else {
-                        tileLine.size = CGSize(width: size.width * 0.55, height: size.height * 0.55)
+                        tileLine.size = CGSize(width: size.width * 0.5, height: size.height * 0.5)
                     }
                 }
             } else if tilesImage[i] == Resources.Tiles.moonTile {
@@ -253,12 +254,12 @@ class GameScene: Scene {
                 returnSize = CGSize(width: size.width, height: size.height)
             case 3:
                 returnSize = CGSize(width: size.width * 0.9, height: size.height * 0.9)
-            case 4, 5:
-                returnSize = CGSize(width: size.width * 0.85, height: size.height * 0.85)
-            case 6:
-                returnSize = CGSize(width: size.width * 0.78, height: size.height * 0.78)
-            case 7:
-                returnSize = CGSize(width: size.width * 0.70, height: size.height * 0.70)
+            case 4:
+                returnSize = CGSize(width: size.width * 0.8, height: size.height * 0.8)
+            case 5:
+                returnSize = CGSize(width: size.width * 0.72, height: size.height * 0.72)
+            case 6, 7:
+                returnSize = CGSize(width: size.width * 0.7, height: size.height * 0.7)
             default: break
             }
         }
@@ -274,13 +275,13 @@ class GameScene: Scene {
             case 3:
                 returnSize = CGSize(width: size.width * 1.45, height: size.height * 1.4)
             case 4:
-                returnSize = CGSize(width: size.width * 1, height: size.height * 1)
+                returnSize = CGSize(width: size.width * 1.27, height: size.height * 1.27)
             case 5:
-                returnSize = CGSize(width: size.width * 1.37, height: size.height * 1.37)
+                returnSize = CGSize(width: size.width * 1.22, height: size.height * 1.22)
             case 6:
-                returnSize = CGSize(width: size.width * 1.2, height: size.height * 1.2)
+                returnSize = CGSize(width: size.width * 1.08, height: size.height * 1.08)
             case 7:
-                returnSize = CGSize(width: size.width * 1.05, height: size.height * 1.05)
+                returnSize = CGSize(width: size.width * 1.03, height: size.height * 1.03)
             default: break
             }
         }
@@ -298,11 +299,11 @@ class GameScene: Scene {
         case 4:
             return CGPoint(x: tilesBoard.frame.minX + 15, y: tilesBoard.frame.maxY + 35)
         case 5:
-            return CGPoint(x: tilesBoard.frame.minX + 24, y: tilesBoard.frame.maxY + 35)
+            return CGPoint(x: tilesBoard.frame.minX + 26, y: tilesBoard.frame.maxY + 35)
         case 6:
             return CGPoint(x: tilesBoard.frame.minX + 15, y: tilesBoard.frame.maxY + 35)
         case 7:
-            return CGPoint(x: tilesBoard.frame.minX + 11, y: tilesBoard.frame.maxY + 35)
+            return CGPoint(x: tilesBoard.frame.minX, y: tilesBoard.frame.maxY + 35)
         default:
             return CGPoint()
         }
@@ -317,7 +318,13 @@ class GameScene: Scene {
         case 3:
             return CGPoint(x: tilesBoard.frame.minX + 27, y: tilesBoard.frame.maxY - 30)
         case 4:
-            return CGPoint(x: tilesBoard.frame.minX + 26, y: tilesBoard.frame.maxY - 26)
+            return CGPoint(x: tilesBoard.frame.minX + 22, y: tilesBoard.frame.maxY - 23)
+        case 5:
+            return CGPoint(x: tilesBoard.frame.minX + 24, y: tilesBoard.frame.maxY - 23)
+        case 6:
+            return CGPoint(x: tilesBoard.frame.minX + 24, y: tilesBoard.frame.maxY - 23)
+        case 7:
+            return CGPoint(x: tilesBoard.frame.minX + 18, y: tilesBoard.frame.maxY - 18)
         default:
             return CGPoint()
         }
@@ -333,8 +340,12 @@ class GameScene: Scene {
                 returnSize = CGSize(width: size.width * 1.42, height: size.height * 1.32)
             case 3:
                 returnSize = CGSize(width: size.width * 1.15, height: size.height * 1.06)
-            case 4:
-                returnSize = CGSize(width: size.width * 1.11, height: size.height)
+            case 4, 5:
+                returnSize = CGSize(width: size.width * 1.0, height: size.height * 0.91)
+            case 6:
+                returnSize = CGSize(width: size.width * 0.85, height: size.height * 0.76)
+            case 7:
+                returnSize = CGSize(width: size.width * 0.75, height: size.height * 0.66)
             default: break
             }
         }
@@ -352,11 +363,11 @@ class GameScene: Scene {
         case 4:
             tiles = Array(repeating: Array(repeating: SKSpriteNode(imageNamed: Resources.Tiles.questionMarkTile), count: 8), count: 6)
         case 5:
-            tiles = Array(repeating: Array(repeating: SKSpriteNode(imageNamed: Resources.Tiles.questionMarkTile), count: 9), count: 7)
+            tiles = Array(repeating: Array(repeating: SKSpriteNode(imageNamed: Resources.Tiles.questionMarkTile), count: 9), count: 6)
         case 6:
-            tiles = Array(repeating: Array(repeating: SKSpriteNode(imageNamed: Resources.Tiles.questionMarkTile), count: 9), count: 8)
+            tiles = Array(repeating: Array(repeating: SKSpriteNode(imageNamed: Resources.Tiles.questionMarkTile), count: 10), count: 7)
         case 7:
-            tiles = Array(repeating: Array(repeating: SKSpriteNode(imageNamed: Resources.Tiles.questionMarkTile), count: 9), count: 9)
+            tiles = Array(repeating: Array(repeating: SKSpriteNode(imageNamed: Resources.Tiles.questionMarkTile), count: 11), count: 8)
         default: break
         }
         

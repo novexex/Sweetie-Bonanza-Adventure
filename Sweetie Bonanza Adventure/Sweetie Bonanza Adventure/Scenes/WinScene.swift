@@ -43,7 +43,7 @@ class WinScene: Scene {
         let menuButton = SKSpriteNode(imageNamed: Resources.Buttons.menuButton)
         menuButton.name = Resources.Buttons.menuButton
         menuButton.size = CGSize(width: 51, height: 51)
-        menuButton.position = CGPoint(x: frame.minX + 100, y: frame.maxY - 60)
+        menuButton.position = CGPoint(x: frame.minX + 90, y: frame.maxY - 60)
         addChild(menuButton)
         
         soundButton = SKSpriteNode(imageNamed: gameController.isSoundMuted ? Resources.Buttons.unmuteSoundButton : Resources.Buttons.soundButton)

@@ -35,13 +35,13 @@ class StoreScene: Scene {
         setBackground(with: Resources.Backgrounds.storeBackground)
         
         let coinsLabel = SKSpriteNode(imageNamed: Resources.Labels.coinsLabel)
-        coinsLabel.position = CGPoint(x: frame.maxX - 155, y: frame.maxY - 60)
+        coinsLabel.position = CGPoint(x: frame.maxX - 140, y: frame.maxY - 60)
         addChild(coinsLabel)
         
         let menuButton = SKSpriteNode(imageNamed: Resources.Buttons.menuButton)
         menuButton.name = Resources.Buttons.menuButton
         menuButton.size = CGSize(width: coinsLabel.size.height, height: coinsLabel.size.height)
-        menuButton.position = CGPoint(x: frame.minX + 100, y: frame.maxY - 60)
+        menuButton.position = CGPoint(x: frame.minX + 90, y: frame.maxY - 60)
         addChild(menuButton)
         
         soundButton = SKSpriteNode(imageNamed: gameController.isSoundMuted ? Resources.Buttons.unmuteSoundButton : Resources.Buttons.soundButton)
