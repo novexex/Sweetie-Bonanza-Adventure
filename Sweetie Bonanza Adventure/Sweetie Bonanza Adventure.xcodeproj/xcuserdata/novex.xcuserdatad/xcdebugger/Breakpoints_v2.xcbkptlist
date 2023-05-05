@@ -46,8 +46,8 @@
             filePath = "Sweetie Bonanza Adventure/ViewControllers/GameViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
             landmarkName = "setupSKView()"
             landmarkType = "7">
             <Locations>
@@ -158,8 +158,8 @@
             filePath = "Sweetie Bonanza Adventure/ViewControllers/GameViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "138"
-            endingLineNumber = "138"
+            startingLineNumber = "139"
+            endingLineNumber = "139"
             landmarkName = "presentCustomScene(_:)"
             landmarkType = "7">
             <Locations>
@@ -238,8 +238,8 @@
             filePath = "Sweetie Bonanza Adventure/ViewControllers/GameViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "131"
-            endingLineNumber = "131"
+            startingLineNumber = "132"
+            endingLineNumber = "132"
             landmarkName = "setupGame()"
             landmarkType = "7">
          </BreakpointContent>
