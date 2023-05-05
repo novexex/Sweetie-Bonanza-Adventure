@@ -34,7 +34,10 @@ enum Resources {
     }
     
     enum Tiles {
+        static let questionMarkTile = "questionMarkTile"
         static let tileBackground = "tileBackground"
+        static let bombTile = "tile10"
+        static let moonTile = "tile11"
     }
     
     enum Backgrounds {

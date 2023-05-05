@@ -19,15 +19,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = window
         return true
     }
-    
-    func applicationDidEnterBackground(_ application: UIApplication) {
-        guard let viewController = window?.rootViewController else { return }
-        if let gameController = viewController as? GameViewController {
-            gameController.saveGameSetup()
-        }
-    }
-
-    func applicationWillResignActive(_ application: UIApplication) {
-        applicationDidEnterBackground(application)
-    }
 }

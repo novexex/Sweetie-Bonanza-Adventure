@@ -20,11 +20,12 @@ class GameViewController: UIViewController {
             loseScene.soundButton.texture = SKTexture(imageNamed: soundImage)
         }
     }
-    var lifesCount = 0 {
+    var lifesCount = 5 {
         didSet {
             menuScene.lifesCount.text = String(lifesCount)
             dailyBonusScene.lifesCount.text = String(lifesCount)
             storeScene.lifesCount.text = String(lifesCount)
+            gameScene.lifesCount.text = String(lifesCount)
         }
     }
     var coinsCount = 0 {
@@ -75,11 +76,14 @@ class GameViewController: UIViewController {
     }
     
     func newGameButtonPressed() {
-        gameScene = GameScene(size: view.bounds.size, gameController: self, level: 1)
+        availableLevel = 1
+        saveGameSetup()
+        gameScene = GameScene(size: view.bounds.size, gameController: self, level: availableLevel)
         presentCustomScene(gameScene)
     }
     
     func continueButtonPressed() {
+        gameScene = GameScene(size: view.bounds.size, gameController: self, level: availableLevel)
         presentCustomScene(gameScene)
     }
     
@@ -100,6 +104,17 @@ class GameViewController: UIViewController {
         if level <= 6 {
             gameScene = GameScene(size: view.bounds.size, gameController: self, level: level+1)
             presentCustomScene(gameScene)
+        }
+    }
+    
+    func gameOver() {
+        if lifesCount == 0 {
+            presentCustomScene(loseScene)
+        } else {
+            presentCustomScene(winScene)
+            coinsCount += availableLevel * 1000
+            availableLevel += 1
+            saveGameSetup()
         }
     }
     

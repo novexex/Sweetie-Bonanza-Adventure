@@ -10,7 +10,6 @@
 		EB0639BF2A0274F7005AC3DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0639BE2A0274F7005AC3DC /* AppDelegate.swift */; };
 		EB0639C52A0274F7005AC3DC /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0639C42A0274F7005AC3DC /* GameScene.swift */; };
 		EB0639C72A0274F7005AC3DC /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0639C62A0274F7005AC3DC /* GameViewController.swift */; };
-		EB0639CC2A0274F8005AC3DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB0639CB2A0274F8005AC3DC /* Assets.xcassets */; };
 		EB0639CF2A0274F8005AC3DC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB0639CD2A0274F8005AC3DC /* LaunchScreen.storyboard */; };
 		EB0639DD2A02BC63005AC3DC /* BaseSceneClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0639DC2A02BC63005AC3DC /* BaseSceneClass.swift */; };
 		EB0639DF2A0316EC005AC3DC /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0639DE2A0316EC005AC3DC /* MenuScene.swift */; };
@@ -20,6 +19,7 @@
 		EB0639EA2A031836005AC3DC /* RifficFree-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EB0639E92A031836005AC3DC /* RifficFree-Bold.ttf */; };
 		EB063A162A034544005AC3DC /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB063A152A034544005AC3DC /* Enums.swift */; };
 		EB063A1A2A039561005AC3DC /* StoreScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB063A192A039561005AC3DC /* StoreScene.swift */; };
+		EB063A1C2A0541EA005AC3DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB063A1B2A0541EA005AC3DC /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +27,6 @@
 		EB0639BE2A0274F7005AC3DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EB0639C42A0274F7005AC3DC /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		EB0639C62A0274F7005AC3DC /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
-		EB0639CB2A0274F8005AC3DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EB0639CE2A0274F8005AC3DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EB0639DC2A02BC63005AC3DC /* BaseSceneClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSceneClass.swift; sourceTree = "<group>"; };
 		EB0639DE2A0316EC005AC3DC /* MenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
@@ -38,6 +37,7 @@
 		EB063A122A033938005AC3DC /* Sweetie-Bonanza-Adventure-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Sweetie-Bonanza-Adventure-Info.plist"; path = "Sweetie Bonanza Adventure/Resources/Sweetie-Bonanza-Adventure-Info.plist"; sourceTree = SOURCE_ROOT; };
 		EB063A152A034544005AC3DC /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		EB063A192A039561005AC3DC /* StoreScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreScene.swift; sourceTree = "<group>"; };
+		EB063A1B2A0541EA005AC3DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,8 +92,8 @@
 			isa = PBXGroup;
 			children = (
 				EB0639E82A031823005AC3DC /* Fonts */,
-				EB0639CB2A0274F8005AC3DC /* Assets.xcassets */,
 				EB063A122A033938005AC3DC /* Sweetie-Bonanza-Adventure-Info.plist */,
+				EB063A1B2A0541EA005AC3DC /* Assets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -202,8 +202,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB0639CC2A0274F8005AC3DC /* Assets.xcassets in Resources */,
 				EB0639EA2A031836005AC3DC /* RifficFree-Bold.ttf in Resources */,
+				EB063A1C2A0541EA005AC3DC /* Assets.xcassets in Resources */,
 				EB0639CF2A0274F8005AC3DC /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
