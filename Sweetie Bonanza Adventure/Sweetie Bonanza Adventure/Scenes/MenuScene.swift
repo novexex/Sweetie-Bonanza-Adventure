@@ -20,7 +20,7 @@ class MenuScene: Scene {
                         if !Calendar.current.isDateInToday(bonusTime) {
                             gameController.giftButtonPressed()
                         } else {
-                            print("Daily bonus is picked up")
+                            createAlert(title: "", message: "Daily bonus is picked up")
                         }
                     } else {
                         gameController.giftButtonPressed()
