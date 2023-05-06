@@ -15,25 +15,25 @@ class MenuScene: Scene {
         for touch in touches {
             if let node = atPoint(touch.location(in: self)) as? SKSpriteNode {
                 switch node.name {
-                    case Resources.Buttons.giftButton:
-                        if let bonusTime = gameController.lastPickupBonus {
-                            if !Calendar.current.isDateInToday(bonusTime) {
-                                gameController.giftButtonPressed()
-                            } else {
-                                print("Daily bonus is picked up")
-                            }
-                        } else {
+                case Resources.Buttons.giftButton:
+                    if let bonusTime = gameController.lastPickupBonus {
+                        if !Calendar.current.isDateInToday(bonusTime) {
                             gameController.giftButtonPressed()
+                        } else {
+                            print("Daily bonus is picked up")
                         }
-                    case Resources.Buttons.soundButton:
-                        gameController.soundButtonPressed()
-                    case Resources.Buttons.newGameButton:
-                        gameController.newGameButtonPressed()
-                    case Resources.Buttons.continueButton:
-                        gameController.continueButtonPressed()
-                    case Resources.Buttons.shopButton:
-                        gameController.shopButtonPressed()
-                    default: break
+                    } else {
+                        gameController.giftButtonPressed()
+                    }
+                case Resources.Buttons.soundButton:
+                    gameController.soundButtonPressed()
+                case Resources.Buttons.newGameButton:
+                    gameController.newGameButtonPressed()
+                case Resources.Buttons.continueButton:
+                    gameController.continueButtonPressed()
+                case Resources.Buttons.shopButton:
+                    gameController.shopButtonPressed()
+                default: break
                 }
             }
         }
@@ -41,7 +41,7 @@ class MenuScene: Scene {
     
     override func setupUI() {
         setBackground(with: Resources.Backgrounds.menuBackground)
-                      
+        
         let coinsLabel = SKSpriteNode(imageNamed: Resources.Labels.coinsLabel)
         coinsLabel.position = CGPoint(x: frame.maxX - 140, y: frame.maxY - 60)
         addChild(coinsLabel)

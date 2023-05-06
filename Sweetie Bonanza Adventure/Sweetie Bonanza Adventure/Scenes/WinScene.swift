@@ -23,15 +23,15 @@ class WinScene: Scene {
         for touch in touches {
             if let node = atPoint(touch.location(in: self)) as? SKSpriteNode {
                 switch node.name {
-                    case Resources.Buttons.menuButton:
-                        gameController.menuButtonPressed()
-                    case Resources.Buttons.soundButton:
-                        gameController.soundButtonPressed()
-                    case Resources.Buttons.restartButton:
-                        gameController.restartButtonPressed(level: level)
-                    case Resources.Buttons.continueToWinButton:
-                        gameController.continueToWinButtonPressed(level: level)
-                    default: break
+                case Resources.Buttons.menuButton:
+                    gameController.menuButtonPressed()
+                case Resources.Buttons.soundButton:
+                    gameController.soundButtonPressed()
+                case Resources.Buttons.restartButton:
+                    gameController.restartButtonPressed(level: level)
+                case Resources.Buttons.continueToWinButton:
+                    gameController.continueToWinButtonPressed(level: level)
+                default: break
                 }
             }
         }

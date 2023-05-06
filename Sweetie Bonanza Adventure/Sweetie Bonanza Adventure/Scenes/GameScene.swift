@@ -36,6 +36,7 @@ class GameScene: Scene {
         guard let touch = touches.first else { return }
         let location = touch.location(in: self)
         
+        // Top line touch handler
         for i in tilesBackgroundLine.enumerated() {
             if i.element.contains(location) {
                 if elementSelected != -1 && elementSelected == i.offset {
@@ -49,6 +50,7 @@ class GameScene: Scene {
             }
         }
         
+        // Tiles board touch handler
         if elementSelected != -1 {
             for i in tiles.enumerated() {
                 for j in i.element.enumerated() {
@@ -76,6 +78,7 @@ class GameScene: Scene {
             gameController.gameOver()
         }
         
+        // Buttons touch handler
         for touch in touches {
             if let node = atPoint(touch.location(in: self)) as? SKSpriteNode {
                 switch node.name {
@@ -167,7 +170,7 @@ class GameScene: Scene {
     
     private func isGameOverHorizontally(row: Int, col: Int) -> Bool {
         if row >= 1 {
-            if tiles[row][col].name == Resources.Tiles.questionMarkTile || tiles[row-1][col].name == Resources.Tiles.questionMarkTile {
+            if tiles[row][col].name != Resources.Tiles.questionMarkTile || tiles[row-1][col].name == Resources.Tiles.questionMarkTile {
                 return true
             } else if tiles[row][col].name == tiles[row-1][col].name {
                 return true

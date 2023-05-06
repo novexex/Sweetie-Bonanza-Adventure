@@ -15,20 +15,20 @@ class StoreScene: Scene {
         for touch in touches {
             if let node = atPoint(touch.location(in: self)) as? SKSpriteNode {
                 switch node.name {
-                    case Resources.Buttons.menuButton:
-                        gameController.menuButtonPressed()
-                    case Resources.Buttons.soundButton:
-                        gameController.soundButtonPressed()
-                    case "buyOneLifeButton":
-                        gameController.makeSound()
-                        buyLifes(amount: 1)
-                    case "buyThreeLifesButton":
-                        gameController.makeSound()
-                        buyLifes(amount: 3)
-                    case "buyFiveLifesButton":
-                        gameController.makeSound()
-                        buyLifes(amount: 5)
-                    default: break
+                case Resources.Buttons.menuButton:
+                    gameController.menuButtonPressed()
+                case Resources.Buttons.soundButton:
+                    gameController.soundButtonPressed()
+                case "buyOneLifeButton":
+                    gameController.makeSound()
+                    buyLifes(amount: 1)
+                case "buyThreeLifesButton":
+                    gameController.makeSound()
+                    buyLifes(amount: 3)
+                case "buyFiveLifesButton":
+                    gameController.makeSound()
+                    buyLifes(amount: 5)
+                default: break
                 }
             }
         }
@@ -104,28 +104,28 @@ class StoreScene: Scene {
     
     private func buyLifes(amount: Int) {
         switch amount {
-            case 1:
-                if gameController.coinsCount >= 100 {
-                    gameController.coinsCount -= 100
-                    gameController.lifesCount += amount
-                } else {
-                    print("Not enough coins")
-                }
-            case 3:
-                if gameController.coinsCount >= 250 {
-                    gameController.coinsCount -= 250
-                    gameController.lifesCount += amount
-                } else {
-                    print("Not enough coins")
-                }
-            case 5:
-                if gameController.coinsCount >= 400 {
-                    gameController.coinsCount -= 400
-                    gameController.lifesCount += amount
-                } else {
-                    print("Not enough coins")
-                }
-            default: break
+        case 1:
+            if gameController.coinsCount >= 100 {
+                gameController.coinsCount -= 100
+                gameController.lifesCount += amount
+            } else {
+                print("Not enough coins")
+            }
+        case 3:
+            if gameController.coinsCount >= 250 {
+                gameController.coinsCount -= 250
+                gameController.lifesCount += amount
+            } else {
+                print("Not enough coins")
+            }
+        case 5:
+            if gameController.coinsCount >= 400 {
+                gameController.coinsCount -= 400
+                gameController.lifesCount += amount
+            } else {
+                print("Not enough coins")
+            }
+        default: break
         }
         gameController.saveGameSetup()
     }

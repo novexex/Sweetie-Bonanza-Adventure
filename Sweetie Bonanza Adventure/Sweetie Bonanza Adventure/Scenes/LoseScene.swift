@@ -23,17 +23,17 @@ class LoseScene: Scene {
         for touch in touches {
             if let node = atPoint(touch.location(in: self)) as? SKSpriteNode {
                 switch node.name {
-                    case Resources.Buttons.menuButton:
-                        gameController.menuButtonPressed()
-                    case Resources.Buttons.soundButton:
-                        gameController.soundButtonPressed()
-                    case Resources.Buttons.restartButton:
-                        print("huy")
-                        gameController.restartButtonPressed(level: level)
-                    case Resources.Buttons.buyButton:
-                        gameController.makeSound()
-                        buyProcessing()
-                    default: break
+                case Resources.Buttons.menuButton:
+                    gameController.menuButtonPressed()
+                case Resources.Buttons.soundButton:
+                    gameController.soundButtonPressed()
+                case Resources.Buttons.restartButton:
+                    print("huy")
+                    gameController.restartButtonPressed(level: level)
+                case Resources.Buttons.buyButton:
+                    gameController.makeSound()
+                    buyProcessing()
+                default: break
                 }
             }
         }

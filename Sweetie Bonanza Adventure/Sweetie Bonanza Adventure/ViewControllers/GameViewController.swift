@@ -9,6 +9,7 @@ import SpriteKit
 import AVFoundation
 
 class GameViewController: UIViewController {
+    // MARK: Propertys
     // MARK: Game state & settings
     var isSoundMuted = false {
         didSet {
@@ -71,7 +72,8 @@ class GameViewController: UIViewController {
     private lazy var winScene = WinScene(size: view.bounds.size, gameController: self, level: availableLevel)
     private lazy var loseScene = LoseScene(size: view.bounds.size, gameController: self, level: availableLevel)
     private weak var currentScene: Scene!
-
+    
+    // MARK: Override methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -80,6 +82,7 @@ class GameViewController: UIViewController {
         setupSKView()
     }
     
+    // MARK: Public methods
     func saveGameSetup() {
         UserDefaults.standard.set(isFirstLaunch, forKey: Resources.UserDefaultKeys.isFirstLaunch)
         UserDefaults.standard.set(lifesCount, forKey: Resources.UserDefaultKeys.lifesCount)
@@ -166,6 +169,8 @@ class GameViewController: UIViewController {
         clickSound?.play()
     }
     
+    
+    // MARK: Private methods
     private func setupAudio() {
         if let musicURL = Bundle.main.url(forResource: "backgroundMusic", withExtension: "mp3") {
             do {
