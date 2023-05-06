@@ -51,28 +51,31 @@ class GameScene: Scene {
         }
         
         // Tiles board line touch handler
-        if elementSelected != -1 {
             for i in tiles.enumerated() {
                 for j in i.element.enumerated() {
                     if j.element.contains(location) {
-                        gameController.makeSound()
-                        if j.element.texture == tilesLine[elementSelected].texture {
+                        if elementSelected != -1 {
+                            gameController.makeSound()
+                            if j.element.texture == tilesLine[elementSelected].texture {
+                                elementSelected = -1
+                                break
+                            }
+                            j.element.texture = tilesLine[elementSelected].texture
+                            j.element.name = tilesLine[elementSelected].name
                             elementSelected = -1
-                            break
-                        }
-                        j.element.texture = tilesLine[elementSelected].texture
-                        j.element.name = tilesLine[elementSelected].name
-                        elementSelected = -1
-                        if isSameTileRepeatedVertically(row: i.offset, col: j.offset) || isSameTileRepeatedHorizontally(row: i.offset, col: j.offset) {
-                            gameController.lifesCount -= 1
-                            gameController.saveGameSetup()
-                        } else if gameOver() {
-                            gameController.gameOver()
+                            if isSameTileRepeatedVertically(row: i.offset, col: j.offset) || isSameTileRepeatedHorizontally(row: i.offset, col: j.offset) {
+                                gameController.lifesCount -= 1
+                                gameController.saveGameSetup()
+                            } else if gameOver() {
+                                gameController.gameOver()
+                            }
+                        } else {
+                            j.element.texture = SKTexture(imageNamed: Resources.Tiles.questionMarkTile)
+                            j.element.name = Resources.Tiles.questionMarkTile
                         }
                     }
                 }
             }
-        }
         
         if gameController.lifesCount == 0 {
             gameController.gameOver()

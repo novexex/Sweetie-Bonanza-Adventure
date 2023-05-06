@@ -33,4 +33,14 @@ class Scene: SKScene {
         background.zPosition = -2
         addChild(background)
     }
+    
+    func createAlert(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(okAction)
+
+        if let view = self.view {
+            view.window?.rootViewController?.present(alertController, animated: true, completion: nil)
+        }
+    }
 }

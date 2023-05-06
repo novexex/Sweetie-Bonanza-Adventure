@@ -57,6 +57,7 @@ class GameViewController: UIViewController {
     }
     var lastPickupBonus: Date?
     private var isFirstLaunch = 0
+    private var alertController = UIAlertController()
     
     // MARK: Audio propertys
     private var backgroundMusic: AVAudioPlayer?
@@ -77,6 +78,7 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupAlerts()
         setupGame()
         setupAudio()
         setupSKView()
@@ -109,7 +111,7 @@ class GameViewController: UIViewController {
             gameScene = GameScene(size: view.bounds.size, gameController: self, level: availableLevel)
             presentCustomScene(gameScene)
         } else {
-            print("lifesCount == 0")
+            
         }
     }
     
@@ -119,7 +121,9 @@ class GameViewController: UIViewController {
             gameScene = GameScene(size: view.bounds.size, gameController: self, level: availableLevel)
             presentCustomScene(gameScene)
         } else {
-            print("lifesCount == 0")
+            if let view = self.view {
+                view.window?.rootViewController?.present(alertController, animated: true, completion: nil)
+            }
         }
     }
     
@@ -139,7 +143,9 @@ class GameViewController: UIViewController {
             gameScene = GameScene(size: view.bounds.size, gameController: self, level: level)
             presentCustomScene(gameScene)
         } else {
-            print("lifesCount == 0")
+            if let view = self.view {
+                view.window?.rootViewController?.present(alertController, animated: true, completion: nil)
+            }
         }
     }
     
@@ -206,6 +212,12 @@ class GameViewController: UIViewController {
                 print(error.localizedDescription)
             }
         }
+    }
+    
+    private func setupAlerts() {
+        alertController = UIAlertController(title: "", message: "You don't have enough lifes", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(okAction)
     }
     
     private func setupSKView() {

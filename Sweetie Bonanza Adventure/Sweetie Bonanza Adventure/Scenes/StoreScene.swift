@@ -109,21 +109,21 @@ class StoreScene: Scene {
                 gameController.coinsCount -= 100
                 gameController.lifesCount += amount
             } else {
-                print("Not enough coins")
+                createAlert(title: "", message: "You don't have enough points")
             }
         case 3:
             if gameController.coinsCount >= 250 {
                 gameController.coinsCount -= 250
                 gameController.lifesCount += amount
             } else {
-                print("Not enough coins")
+                createAlert(title: "", message: "You don't have enough points")
             }
         case 5:
             if gameController.coinsCount >= 400 {
                 gameController.coinsCount -= 400
                 gameController.lifesCount += amount
             } else {
-                print("Not enough coins")
+                createAlert(title: "", message: "You don't have enough points")
             }
         default: break
         }

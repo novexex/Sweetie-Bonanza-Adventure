@@ -53,6 +53,7 @@ class WinScene: Scene {
         addChild(soundButton)
         
         let restartButton = SKSpriteNode(imageNamed: Resources.Buttons.restartButton)
+        restartButton.name = Resources.Buttons.restartButton
         restartButton.size = menuButton.size
         restartButton.position = CGPoint(x: frame.maxX - 140, y: menuButton.position.y)
         addChild(restartButton)

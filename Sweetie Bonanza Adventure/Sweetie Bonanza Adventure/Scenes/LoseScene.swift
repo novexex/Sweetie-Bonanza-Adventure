@@ -27,9 +27,6 @@ class LoseScene: Scene {
                     gameController.menuButtonPressed()
                 case Resources.Buttons.soundButton:
                     gameController.soundButtonPressed()
-                case Resources.Buttons.restartButton:
-                    print("huy")
-                    gameController.restartButtonPressed(level: level)
                 case Resources.Buttons.buyButton:
                     gameController.makeSound()
                     buyProcessing()
@@ -54,11 +51,6 @@ class LoseScene: Scene {
         soundButton.position = CGPoint(x: menuButton.position.x + 55, y: menuButton.position.y)
         addChild(soundButton)
         
-        let restartButton = SKSpriteNode(imageNamed: Resources.Buttons.restartButton)
-        restartButton.size = menuButton.size
-        restartButton.position = CGPoint(x: frame.maxX - 140, y: menuButton.position.y)
-        addChild(restartButton)
-        
         let buyHeartsLabel = SKSpriteNode(imageNamed: Resources.Labels.buyHeartsLabel)
         buyHeartsLabel.position = CGPoint(x: frame.midX - 50, y: frame.minY + 65)
         addChild(buyHeartsLabel)
@@ -72,6 +64,10 @@ class LoseScene: Scene {
     private func buyProcessing() {
         if gameController.coinsCount >= 400 {
             gameController.lifesCount += 5
+            gameController.coinsCount -= 400
+            gameController.restartButtonPressed(level: level)
+        } else {
+            createAlert(title: "", message: "You don't have enough points")
         }
     }
 }
