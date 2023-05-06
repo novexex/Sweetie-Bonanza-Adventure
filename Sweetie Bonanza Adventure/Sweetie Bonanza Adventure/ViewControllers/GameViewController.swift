@@ -6,9 +6,11 @@
 //
 
 import SpriteKit
+import AVFoundation
 
 class GameViewController: UIViewController {
     // MARK: Game state & settings
+    var backgroundMusic: AVAudioPlayer?
     var isSoundMuted = false {
         didSet {
             let soundImage = isSoundMuted ? Resources.Buttons.unmuteSoundButton : Resources.Buttons.soundButton
@@ -18,6 +20,11 @@ class GameViewController: UIViewController {
             gameScene.soundButton.texture = SKTexture(imageNamed: soundImage)
             winScene.soundButton.texture = SKTexture(imageNamed: soundImage)
             loseScene.soundButton.texture = SKTexture(imageNamed: soundImage)
+            if isSoundMuted {
+                backgroundMusic?.pause()
+            } else {
+                backgroundMusic?.play()
+            }
         }
     }
     var lifesCount = 5 {
@@ -58,6 +65,7 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
         
         setupGame()
+        setupMusic()
         setupSKView()
     }
     
@@ -69,7 +77,7 @@ class GameViewController: UIViewController {
         UserDefaults.standard.set(lastPickupBonus, forKey: Resources.UserDefaultKeys.lastPickupBonus)
     }
     
-    func soundButtonPressed() {
+    func soundButtonPressed(from: Scene) {
         isSoundMuted.toggle()
     }
     
@@ -118,6 +126,18 @@ class GameViewController: UIViewController {
             coinsCount += availableLevel * 1000
             availableLevel += 1
             saveGameSetup()
+        }
+    }
+    
+    private func setupMusic() {
+        if let musicURL = Bundle.main.url(forResource: "backgroundMusic", withExtension: "mp3") {
+            do {
+                backgroundMusic = try AVAudioPlayer(contentsOf: musicURL)
+                backgroundMusic?.numberOfLoops = -1
+                backgroundMusic?.play()
+            } catch {
+                print(error.localizedDescription)
+            }
         }
     }
     

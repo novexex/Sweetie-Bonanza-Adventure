@@ -75,7 +75,7 @@ class GameScene: Scene {
                 case Resources.Buttons.menuButton:
                     gameController.menuButtonPressed()
                 case Resources.Buttons.soundButton:
-                    gameController.soundButtonPressed()
+                    gameController.soundButtonPressed(from: self)
                 case Resources.Buttons.bigRestartButton:
                     gameController.availableLevel += 1
                     gameController.restartButtonPressed(level: level)

@@ -26,7 +26,7 @@ class WinScene: Scene {
                     case Resources.Buttons.menuButton:
                         gameController.menuButtonPressed()
                     case Resources.Buttons.soundButton:
-                        gameController.soundButtonPressed()
+                        gameController.soundButtonPressed(from: self)
                     case Resources.Buttons.restartButton:
                         gameController.restartButtonPressed(level: level)
                     case Resources.Buttons.continueToWinButton:

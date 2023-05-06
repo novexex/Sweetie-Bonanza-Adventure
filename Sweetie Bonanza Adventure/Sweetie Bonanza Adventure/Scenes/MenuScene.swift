@@ -26,7 +26,7 @@ class MenuScene: Scene {
                             gameController.giftButtonPressed()
                         }
                     case Resources.Buttons.soundButton:
-                        gameController.soundButtonPressed()
+                        gameController.soundButtonPressed(from: self)
                     case Resources.Buttons.newGameButton:
                         gameController.newGameButtonPressed()
                     case Resources.Buttons.continueButton:
