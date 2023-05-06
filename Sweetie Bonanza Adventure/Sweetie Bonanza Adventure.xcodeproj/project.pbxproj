@@ -22,6 +22,8 @@
 		EB063A1C2A0541EA005AC3DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB063A1B2A0541EA005AC3DC /* Assets.xcassets */; };
 		EB70036A2A060714001A5DA1 /* backgroundMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EB7003692A060714001A5DA1 /* backgroundMusic.mp3 */; };
 		EB70036D2A060CCE001A5DA1 /* clickSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EB70036C2A060CCE001A5DA1 /* clickSound.mp3 */; };
+		EB7003702A0610D9001A5DA1 /* winSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EB70036E2A0610D9001A5DA1 /* winSound.mp3 */; };
+		EB7003712A0610D9001A5DA1 /* loseSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EB70036F2A0610D9001A5DA1 /* loseSound.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		EB063A1B2A0541EA005AC3DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EB7003692A060714001A5DA1 /* backgroundMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = backgroundMusic.mp3; sourceTree = "<group>"; };
 		EB70036C2A060CCE001A5DA1 /* clickSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = clickSound.mp3; sourceTree = "<group>"; };
+		EB70036E2A0610D9001A5DA1 /* winSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = winSound.mp3; sourceTree = "<group>"; };
+		EB70036F2A0610D9001A5DA1 /* loseSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = loseSound.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +157,8 @@
 		EB70036B2A060CC3001A5DA1 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				EB70036F2A0610D9001A5DA1 /* loseSound.mp3 */,
+				EB70036E2A0610D9001A5DA1 /* winSound.mp3 */,
 				EB70036C2A060CCE001A5DA1 /* clickSound.mp3 */,
 			);
 			path = Sounds;
@@ -219,6 +225,8 @@
 				EB70036D2A060CCE001A5DA1 /* clickSound.mp3 in Resources */,
 				EB0639EA2A031836005AC3DC /* RifficFree-Bold.ttf in Resources */,
 				EB70036A2A060714001A5DA1 /* backgroundMusic.mp3 in Resources */,
+				EB7003712A0610D9001A5DA1 /* loseSound.mp3 in Resources */,
+				EB7003702A0610D9001A5DA1 /* winSound.mp3 in Resources */,
 				EB063A1C2A0541EA005AC3DC /* Assets.xcassets in Resources */,
 				EB0639CF2A0274F8005AC3DC /* LaunchScreen.storyboard in Resources */,
 			);

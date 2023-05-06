@@ -10,8 +10,6 @@ import AVFoundation
 
 class GameViewController: UIViewController {
     // MARK: Game state & settings
-    var backgroundMusic: AVAudioPlayer?
-    var clickSound: AVAudioPlayer?
     var isSoundMuted = false {
         didSet {
             let soundImage = isSoundMuted ? Resources.Buttons.unmuteSoundButton : Resources.Buttons.soundButton
@@ -23,8 +21,14 @@ class GameViewController: UIViewController {
             loseScene.soundButton.texture = SKTexture(imageNamed: soundImage)
             if isSoundMuted {
                 backgroundMusic?.pause()
+                clickSound?.volume = 0
+                winSound?.volume = 0
+                loseSound?.volume = 0
             } else {
                 backgroundMusic?.play()
+                clickSound?.volume = 1
+                winSound?.volume = 2
+                loseSound?.volume = 1
             }
         }
     }
@@ -52,6 +56,12 @@ class GameViewController: UIViewController {
     }
     var lastPickupBonus: Date?
     private var isFirstLaunch = 0
+    
+    // MARK: Audio propertys
+    private var backgroundMusic: AVAudioPlayer?
+    private var clickSound: AVAudioPlayer?
+    private var winSound: AVAudioPlayer?
+    private var loseSound: AVAudioPlayer?
     
     // MARK: Scenes
     private lazy var menuScene = MenuScene(size: view.bounds.size, gameController: self)
@@ -90,16 +100,24 @@ class GameViewController: UIViewController {
     
     func newGameButtonPressed() {
         makeSound()
-        availableLevel = 1
-        saveGameSetup()
-        gameScene = GameScene(size: view.bounds.size, gameController: self, level: availableLevel)
-        presentCustomScene(gameScene)
+        if lifesCount != 0 {
+            availableLevel = 1
+            saveGameSetup()
+            gameScene = GameScene(size: view.bounds.size, gameController: self, level: availableLevel)
+            presentCustomScene(gameScene)
+        } else {
+            print("lifesCount == 0")
+        }
     }
     
     func continueButtonPressed() {
         makeSound()
-        gameScene = GameScene(size: view.bounds.size, gameController: self, level: availableLevel)
-        presentCustomScene(gameScene)
+        if lifesCount != 0 {
+            gameScene = GameScene(size: view.bounds.size, gameController: self, level: availableLevel)
+            presentCustomScene(gameScene)
+        } else {
+            print("lifesCount == 0")
+        }
     }
     
     func shopButtonPressed() {
@@ -114,8 +132,12 @@ class GameViewController: UIViewController {
     
     func restartButtonPressed(level: Int) {
         makeSound()
-        gameScene = GameScene(size: view.bounds.size, gameController: self, level: level)
-        presentCustomScene(gameScene)
+        if lifesCount != 0 {
+            gameScene = GameScene(size: view.bounds.size, gameController: self, level: level)
+            presentCustomScene(gameScene)
+        } else {
+            print("lifesCount == 0")
+        }
     }
     
     func continueToWinButtonPressed(level: Int) {
@@ -128,9 +150,11 @@ class GameViewController: UIViewController {
     
     func gameOver() {
         if lifesCount == 0 {
+            loseSound?.play()
             loseScene = LoseScene(size: view.bounds.size, gameController: self, level: availableLevel)
             presentCustomScene(loseScene)
         } else {
+            winSound?.play()
             presentCustomScene(winScene)
             coinsCount += availableLevel * 1000
             availableLevel += 1
@@ -156,6 +180,23 @@ class GameViewController: UIViewController {
         if let soundURL = Bundle.main.url(forResource: "clickSound", withExtension: "mp3") {
             do {
                 clickSound = try AVAudioPlayer(contentsOf: soundURL)
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        
+        if let soundURL = Bundle.main.url(forResource: "winSound", withExtension: "mp3") {
+            do {
+                winSound = try AVAudioPlayer(contentsOf: soundURL)
+                winSound?.volume = 2
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        
+        if let soundURL = Bundle.main.url(forResource: "loseSound", withExtension: "mp3") {
+            do {
+                loseSound = try AVAudioPlayer(contentsOf: soundURL)
             } catch {
                 print(error.localizedDescription)
             }

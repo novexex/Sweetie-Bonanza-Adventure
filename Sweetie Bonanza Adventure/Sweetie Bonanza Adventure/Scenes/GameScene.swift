@@ -54,6 +54,10 @@ class GameScene: Scene {
                 for j in i.element.enumerated() {
                     if j.element.contains(location) {
                         gameController.makeSound()
+                        if j.element.texture == tilesLine[elementSelected].texture {
+                            elementSelected = -1
+                            break
+                        }
                         j.element.texture = tilesLine[elementSelected].texture
                         j.element.name = tilesLine[elementSelected].name
                         elementSelected = -1
@@ -227,10 +231,18 @@ class GameScene: Scene {
     }
     
     private func isSameTileRepeatedHorizontally(row: Int, col: Int) -> Bool {
-        if row >= 1 {
-            if tiles[row][col].name == Resources.Tiles.questionMarkTile || tiles[row-1][col].name == Resources.Tiles.questionMarkTile {
+        if row >= 1 && row != tiles.count-1 {
+            if tiles[row][col].name == Resources.Tiles.questionMarkTile && tiles[row-1][col].name == Resources.Tiles.questionMarkTile {
                 return false
-            } else if tiles[row][col].name == tiles[row-1][col].name {
+            } else if tiles[row][col].name == tiles[row-1][col].name || tiles[row][col].name == tiles[row+1][col].name {
+                return true
+            }
+        } else if row == 0 {
+            if tiles[row][col].name == tiles[row+1][col].name {
+                return true
+            }
+        } else if row == tiles.count-1 {
+            if tiles[row][col].name == tiles[row-1][col].name {
                 return true
             }
         }
@@ -238,10 +250,18 @@ class GameScene: Scene {
     }
     
     private func isSameTileRepeatedVertically(row: Int, col: Int) -> Bool {
-        if col >= 1 {
-            if tiles[row][col].name == Resources.Tiles.questionMarkTile || tiles[row][col-1].name == Resources.Tiles.questionMarkTile {
+        if col >= 1 && col != tiles[row].count-1  {
+            if tiles[row][col].name == Resources.Tiles.questionMarkTile && tiles[row][col-1].name == Resources.Tiles.questionMarkTile {
                 return false
-            } else if tiles[row][col].name == tiles[row][col-1].name {
+            } else if tiles[row][col].name == tiles[row][col-1].name || tiles[row][col].name == tiles[row][col+1].name {
+                return true
+            }
+        } else if col == 0 {
+            if tiles[row][col].name == tiles[row][col+1].name {
+                return true
+            }
+        } else if col == tiles[row].count-1 {
+            if tiles[row][col].name == tiles[row][col-1].name {
                 return true
             }
         }
