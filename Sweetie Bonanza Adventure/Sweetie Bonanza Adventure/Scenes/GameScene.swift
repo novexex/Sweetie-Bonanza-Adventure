@@ -39,8 +39,10 @@ class GameScene: Scene {
         for i in tilesBackgroundLine.enumerated() {
             if i.element.contains(location) {
                 if elementSelected != -1 && elementSelected == i.offset {
+                    gameController.makeSound()
                     elementSelected = -1
                 } else if elementSelected == -1 {
+                    gameController.makeSound()
                     tilesLine[i.offset].size = CGSize(width: tilesLine[i.offset].size.width * 1.4, height: tilesLine[i.offset].size.height * 1.4)
                     elementSelected = i.offset
                 }
@@ -51,6 +53,7 @@ class GameScene: Scene {
             for i in tiles.enumerated() {
                 for j in i.element.enumerated() {
                     if j.element.contains(location) {
+                        gameController.makeSound()
                         j.element.texture = tilesLine[elementSelected].texture
                         j.element.name = tilesLine[elementSelected].name
                         elementSelected = -1
@@ -75,9 +78,8 @@ class GameScene: Scene {
                 case Resources.Buttons.menuButton:
                     gameController.menuButtonPressed()
                 case Resources.Buttons.soundButton:
-                    gameController.soundButtonPressed(from: self)
+                    gameController.soundButtonPressed()
                 case Resources.Buttons.bigRestartButton:
-                    gameController.availableLevel += 1
                     gameController.restartButtonPressed(level: level)
                 default: break
                 }

@@ -28,12 +28,15 @@ class DailyBonusScene: Scene {
                     case Resources.Buttons.menuButton:
                         gameController.menuButtonPressed()
                     case Resources.Buttons.soundButton:
-                        gameController.soundButtonPressed(from: self)
+                        gameController.soundButtonPressed()
                     case Resources.Buttons.claimGiftButton + "1":
+                        gameController.makeSound()
                         if !isBonusClaimed { claimProcessing(clicked: 1) }
                     case Resources.Buttons.claimGiftButton + "2":
+                        gameController.makeSound()
                         if !isBonusClaimed { claimProcessing(clicked: 2) }
                     case Resources.Buttons.claimGiftButton + "3":
+                        gameController.makeSound()
                         if !isBonusClaimed { claimProcessing(clicked: 3) }
                     default: break
                 }

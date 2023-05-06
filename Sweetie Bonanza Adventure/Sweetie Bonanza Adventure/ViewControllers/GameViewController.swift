@@ -11,6 +11,7 @@ import AVFoundation
 class GameViewController: UIViewController {
     // MARK: Game state & settings
     var backgroundMusic: AVAudioPlayer?
+    var clickSound: AVAudioPlayer?
     var isSoundMuted = false {
         didSet {
             let soundImage = isSoundMuted ? Resources.Buttons.unmuteSoundButton : Resources.Buttons.soundButton
@@ -65,7 +66,7 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
         
         setupGame()
-        setupMusic()
+        setupAudio()
         setupSKView()
     }
     
@@ -77,15 +78,18 @@ class GameViewController: UIViewController {
         UserDefaults.standard.set(lastPickupBonus, forKey: Resources.UserDefaultKeys.lastPickupBonus)
     }
     
-    func soundButtonPressed(from: Scene) {
+    func soundButtonPressed() {
+        makeSound()
         isSoundMuted.toggle()
     }
     
     func giftButtonPressed() {
+        makeSound()
         presentCustomScene(dailyBonusScene)
     }
     
     func newGameButtonPressed() {
+        makeSound()
         availableLevel = 1
         saveGameSetup()
         gameScene = GameScene(size: view.bounds.size, gameController: self, level: availableLevel)
@@ -93,24 +97,29 @@ class GameViewController: UIViewController {
     }
     
     func continueButtonPressed() {
+        makeSound()
         gameScene = GameScene(size: view.bounds.size, gameController: self, level: availableLevel)
         presentCustomScene(gameScene)
     }
     
     func shopButtonPressed() {
+        makeSound()
         presentCustomScene(storeScene)
     }
     
     func menuButtonPressed() {
+        makeSound()
         presentCustomScene(menuScene)
     }
     
     func restartButtonPressed(level: Int) {
+        makeSound()
         gameScene = GameScene(size: view.bounds.size, gameController: self, level: level)
         presentCustomScene(gameScene)
     }
     
     func continueToWinButtonPressed(level: Int) {
+        makeSound()
         if level <= 6 {
             gameScene = GameScene(size: view.bounds.size, gameController: self, level: level+1)
             presentCustomScene(gameScene)
@@ -129,12 +138,24 @@ class GameViewController: UIViewController {
         }
     }
     
-    private func setupMusic() {
+    func makeSound() {
+        clickSound?.play()
+    }
+    
+    private func setupAudio() {
         if let musicURL = Bundle.main.url(forResource: "backgroundMusic", withExtension: "mp3") {
             do {
                 backgroundMusic = try AVAudioPlayer(contentsOf: musicURL)
                 backgroundMusic?.numberOfLoops = -1
                 backgroundMusic?.play()
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        
+        if let soundURL = Bundle.main.url(forResource: "clickSound", withExtension: "mp3") {
+            do {
+                clickSound = try AVAudioPlayer(contentsOf: soundURL)
             } catch {
                 print(error.localizedDescription)
             }

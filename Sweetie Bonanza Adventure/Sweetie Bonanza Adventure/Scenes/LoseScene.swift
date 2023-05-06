@@ -26,10 +26,11 @@ class LoseScene: Scene {
                     case Resources.Buttons.menuButton:
                         gameController.menuButtonPressed()
                     case Resources.Buttons.soundButton:
-                        gameController.soundButtonPressed(from: self)
+                        gameController.soundButtonPressed()
                     case Resources.Buttons.restartButton:
                         gameController.restartButtonPressed(level: level)
                     case Resources.Buttons.buyButton:
+                        gameController.makeSound()
                         buyProcessing()
                     default: break
                 }
