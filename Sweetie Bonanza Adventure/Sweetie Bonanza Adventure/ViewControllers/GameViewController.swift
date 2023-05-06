@@ -111,7 +111,9 @@ class GameViewController: UIViewController {
             gameScene = GameScene(size: view.bounds.size, gameController: self, level: availableLevel)
             presentCustomScene(gameScene)
         } else {
-            
+            if let view = self.view {
+                view.window?.rootViewController?.present(alertController, animated: true, completion: nil)
+            }
         }
     }
     
