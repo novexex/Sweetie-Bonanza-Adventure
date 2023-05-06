@@ -123,9 +123,7 @@ class GameViewController: UIViewController {
     
     private func setupSKView() {
         let skView = SKView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height))
-        skView.showsNodeCount = true
         skView.ignoresSiblingOrder = true
-        skView.showsFPS = true
         self.view = skView
         currentScene = menuScene
         skView.presentScene(currentScene)
