@@ -15,9 +15,9 @@ class StoreScene: BaseScene {
         for touch in touches {
             if let node = atPoint(touch.location(in: self)) as? SKSpriteNode {
                 switch node.name {
-                case Resources.Buttons.menuButton:
+                case Resources.Buttons.menu:
                     gameController.menuButtonPressed()
-                case Resources.Buttons.soundButton:
+                case Resources.Buttons.sound:
                     gameController.soundButtonPressed()
                 case "buyOneLifeButton":
                     gameController.makeSound()
@@ -35,25 +35,25 @@ class StoreScene: BaseScene {
     }
     
     override func setupUI() {
-        setBackground(with: Resources.Backgrounds.storeBackground)
+        setBackground(with: Resources.Backgrounds.store)
         
-        let coinsLabel = SKSpriteNode(imageNamed: Resources.Labels.coinsLabel)
+        let coinsLabel = SKSpriteNode(imageNamed: Resources.Labels.coins)
         coinsLabel.position = CGPoint(x: frame.maxX - 140, y: frame.maxY - 60)
         addChild(coinsLabel)
         
-        let menuButton = SKSpriteNode(imageNamed: Resources.Buttons.menuButton)
-        menuButton.name = Resources.Buttons.menuButton
+        let menuButton = SKSpriteNode(imageNamed: Resources.Buttons.menu)
+        menuButton.name = Resources.Buttons.menu
         menuButton.size = CGSize(width: coinsLabel.size.height, height: coinsLabel.size.height)
         menuButton.position = CGPoint(x: frame.minX + 90, y: frame.maxY - 60)
         addChild(menuButton)
         
-        soundButton = SKSpriteNode(imageNamed: gameController.isSoundMuted ? Resources.Buttons.unmuteSoundButton : Resources.Buttons.soundButton)
-        soundButton.name = Resources.Buttons.soundButton
+        soundButton = SKSpriteNode(imageNamed: gameController.isSoundMuted ? Resources.Buttons.unmuteSound : Resources.Buttons.sound)
+        soundButton.name = Resources.Buttons.sound
         soundButton.size = menuButton.size
         soundButton.position = CGPoint(x: menuButton.position.x + 55, y: menuButton.position.y)
         addChild(soundButton)
         
-        let lifesLabel = SKSpriteNode(imageNamed: Resources.Labels.lifesLabel)
+        let lifesLabel = SKSpriteNode(imageNamed: Resources.Labels.lifes)
         lifesLabel.size = CGSize(width: menuButton.size.width * 2 + 6, height: menuButton.size.height)
         lifesLabel.position = CGPoint(x: menuButton.frame.maxX + 3, y: menuButton.position.y - 55)
         addChild(lifesLabel)
@@ -74,29 +74,29 @@ class StoreScene: BaseScene {
         coinsCount.zPosition = 1
         addChild(coinsCount)
         
-        let threeLifesLabel = SKSpriteNode(imageNamed: Resources.Labels.threeLifesLabel)
+        let threeLifesLabel = SKSpriteNode(imageNamed: Resources.Labels.threeLifes)
         threeLifesLabel.position = CGPoint(x: frame.midX, y: frame.midY - 50)
         addChild(threeLifesLabel)
         
-        let oneLifeLabel = SKSpriteNode(imageNamed: Resources.Labels.oneLifeLabel)
+        let oneLifeLabel = SKSpriteNode(imageNamed: Resources.Labels.oneLife)
         oneLifeLabel.position = CGPoint(x: threeLifesLabel.position.x - 150, y: threeLifesLabel.position.y)
         addChild(oneLifeLabel)
         
-        let fiveLifesLabel = SKSpriteNode(imageNamed: Resources.Labels.fiveLifesLabel)
+        let fiveLifesLabel = SKSpriteNode(imageNamed: Resources.Labels.fiveLifes)
         fiveLifesLabel.position = CGPoint(x: threeLifesLabel.position.x + 150, y: threeLifesLabel.position.y)
         addChild(fiveLifesLabel)
         
-        let buyThreeLifesButton = SKSpriteNode(imageNamed: Resources.Buttons.buyButton)
+        let buyThreeLifesButton = SKSpriteNode(imageNamed: Resources.Buttons.buy)
         buyThreeLifesButton.name = "buyThreeLifesButton"
         buyThreeLifesButton.position = CGPoint(x: threeLifesLabel.frame.midX, y: threeLifesLabel.frame.midY - 80)
         addChild(buyThreeLifesButton)
         
-        let buyOneLifeButton = SKSpriteNode(imageNamed: Resources.Buttons.buyButton)
+        let buyOneLifeButton = SKSpriteNode(imageNamed: Resources.Buttons.buy)
         buyOneLifeButton.name = "buyOneLifeButton"
         buyOneLifeButton.position = CGPoint(x: oneLifeLabel.frame.midX, y: oneLifeLabel.frame.midY - 80)
         addChild(buyOneLifeButton)
         
-        let buyFiveLifesButton = SKSpriteNode(imageNamed: Resources.Buttons.buyButton)
+        let buyFiveLifesButton = SKSpriteNode(imageNamed: Resources.Buttons.buy)
         buyFiveLifesButton.name = "buyFiveLifesButton"
         buyFiveLifesButton.position = CGPoint(x: fiveLifesLabel.frame.midX, y: fiveLifesLabel.frame.midY - 80)
         addChild(buyFiveLifesButton)

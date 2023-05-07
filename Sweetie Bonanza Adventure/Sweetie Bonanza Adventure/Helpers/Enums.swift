@@ -7,46 +7,46 @@
 
 enum Resources {
     enum Buttons {
-        static let giftButton = "giftButton"
-        static let soundButton = "soundButton"
-        static let unmuteSoundButton = "unmuteSoundButton"
-        static let newGameButton = "newGameButton"
-        static let continueButton = "continueButton"
-        static let shopButton = "shopButton"
-        static let menuButton = "menuButton"
-        static let claimGiftButton = "claimGiftButton"
-        static let buyButton = "buyButton"
-        static let bigRestartButton = "bigRestartButton"
-        static let restartButton = "restartButton"
-        static let continueToWinButton = "continueToWinButton"
+        static let gift = "giftButton"
+        static let sound = "soundButton"
+        static let unmuteSound = "unmuteSoundButton"
+        static let newGame = "newGameButton"
+        static let `continue` = "continueButton"
+        static let shop = "shopButton"
+        static let menu = "menuButton"
+        static let claimGift = "claimGiftButton"
+        static let buy = "buyButton"
+        static let bigRestart = "bigRestartButton"
+        static let restart = "restartButton"
+        static let continueToWin = "continueToWinButton"
     }
     
     enum Labels {
-        static let coinsLabel = "coinsLabel"
-        static let lifesLabel = "lifesLabel"
-        static let candyLabel2000 = "candyLabel2000"
-        static let candyLabel1000 = "candyLabel1000"
-        static let candyLabel500 = "candyLabel500"
-        static let oneLifeLabel = "oneLifeLabel"
-        static let threeLifesLabel = "twoLifesLabel"
-        static let fiveLifesLabel = "fiveLifesLabel"
-        static let buyHeartsLabel = "buyHeartsLabel"
+        static let coins = "coinsLabel"
+        static let lifes = "lifesLabel"
+        static let largeCandy = "candyLabel2000"
+        static let mediumCandy = "candyLabel1000"
+        static let smallCandy = "candyLabel500"
+        static let oneLife = "oneLifeLabel"
+        static let threeLifes = "twoLifesLabel"
+        static let fiveLifes = "fiveLifesLabel"
+        static let buyHearts = "buyHeartsLabel"
     }
     
     enum Tiles {
-        static let questionMarkTile = "questionMarkTile"
-        static let tileBackground = "tileBackground"
-        static let bombTile = "tile10"
-        static let moonTile = "tile11"
+        static let questionMark = "questionMarkTile"
+        static let background = "tileBackground"
+        static let bomb = "tile10"
+        static let moon = "tile11"
     }
     
     enum Backgrounds {
-        static let menuBackground = "mainBackground"
-        static let storeBackground = "mainBackground"
-        static let dailyBonusBackground = "giftBackground"
-        static let gameBackground = "gameBackground"
-        static let winBackground = "winBackground"
-        static let loseBackground = "loseBackground"
+        static let menu = "mainBackground"
+        static let store = "mainBackground"
+        static let dailyBonus = "giftBackground"
+        static let game = "gameBackground"
+        static let win = "winBackground"
+        static let lose = "loseBackground"
     }
     
     enum Fonts {
@@ -54,7 +54,7 @@ enum Resources {
     }
     
     enum Colors {
-        static let fontColor = "fontColor"
+        static let font = "fontColor"
     }
     
     enum UserDefaultKeys {

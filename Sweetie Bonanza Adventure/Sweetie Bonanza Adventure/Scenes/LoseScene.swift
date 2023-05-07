@@ -23,11 +23,11 @@ class LoseScene: BaseScene {
         for touch in touches {
             if let node = atPoint(touch.location(in: self)) as? SKSpriteNode {
                 switch node.name {
-                case Resources.Buttons.menuButton:
+                case Resources.Buttons.menu:
                     gameController.menuButtonPressed()
-                case Resources.Buttons.soundButton:
+                case Resources.Buttons.sound:
                     gameController.soundButtonPressed()
-                case Resources.Buttons.buyButton:
+                case Resources.Buttons.buy:
                     gameController.makeSound()
                     buyProcessing()
                 default: break
@@ -37,26 +37,26 @@ class LoseScene: BaseScene {
     }
     
     override func setupUI() {
-        setBackground(with: Resources.Backgrounds.loseBackground)
+        setBackground(with: Resources.Backgrounds.lose)
         
-        let menuButton = SKSpriteNode(imageNamed: Resources.Buttons.menuButton)
-        menuButton.name = Resources.Buttons.menuButton
+        let menuButton = SKSpriteNode(imageNamed: Resources.Buttons.menu)
+        menuButton.name = Resources.Buttons.menu
         menuButton.size = CGSize(width: 51, height: 51)
         menuButton.position = CGPoint(x: frame.minX + 90, y: frame.maxY - 60)
         addChild(menuButton)
         
-        soundButton = SKSpriteNode(imageNamed: gameController.isSoundMuted ? Resources.Buttons.unmuteSoundButton : Resources.Buttons.soundButton)
-        soundButton.name = Resources.Buttons.soundButton
+        soundButton = SKSpriteNode(imageNamed: gameController.isSoundMuted ? Resources.Buttons.unmuteSound : Resources.Buttons.sound)
+        soundButton.name = Resources.Buttons.sound
         soundButton.size = menuButton.size
         soundButton.position = CGPoint(x: menuButton.position.x + 55, y: menuButton.position.y)
         addChild(soundButton)
         
-        let buyHeartsLabel = SKSpriteNode(imageNamed: Resources.Labels.buyHeartsLabel)
+        let buyHeartsLabel = SKSpriteNode(imageNamed: Resources.Labels.buyHearts)
         buyHeartsLabel.position = CGPoint(x: frame.midX - 50, y: frame.minY + 65)
         addChild(buyHeartsLabel)
         
-        let buyHeartsButton = SKSpriteNode(imageNamed: Resources.Buttons.buyButton)
-        buyHeartsButton.name = Resources.Buttons.buyButton
+        let buyHeartsButton = SKSpriteNode(imageNamed: Resources.Buttons.buy)
+        buyHeartsButton.name = Resources.Buttons.buy
         buyHeartsButton.position = CGPoint(x: buyHeartsLabel.frame.maxX + 53, y: buyHeartsLabel.frame.midY)
         addChild(buyHeartsButton)
     }

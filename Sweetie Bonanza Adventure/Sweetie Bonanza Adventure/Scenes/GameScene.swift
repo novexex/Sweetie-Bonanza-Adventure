@@ -70,8 +70,8 @@ class GameScene: BaseScene {
                                 gameController.gameOver()
                             }
                         } else {
-                            j.element.texture = SKTexture(imageNamed: Resources.Tiles.questionMarkTile)
-                            j.element.name = Resources.Tiles.questionMarkTile
+                            j.element.texture = SKTexture(imageNamed: Resources.Tiles.questionMark)
+                            j.element.name = Resources.Tiles.questionMark
                         }
                     }
                 }
@@ -84,11 +84,11 @@ class GameScene: BaseScene {
         for touch in touches {
             if let node = atPoint(touch.location(in: self)) as? SKSpriteNode {
                 switch node.name {
-                case Resources.Buttons.menuButton:
+                case Resources.Buttons.menu:
                     gameController.menuButtonPressed()
-                case Resources.Buttons.soundButton:
+                case Resources.Buttons.sound:
                     gameController.soundButtonPressed()
-                case Resources.Buttons.bigRestartButton:
+                case Resources.Buttons.bigRestart:
                     gameController.restartButtonPressed(level: level)
                 default: break
                 }
@@ -97,7 +97,7 @@ class GameScene: BaseScene {
     }
     
     override func setupUI() {
-        setBackground(with: Resources.Backgrounds.gameBackground)
+        setBackground(with: Resources.Backgrounds.game)
         
         tilesBoard = SKSpriteNode(imageNamed: "levelBoard" + String(level))
         if let size = tilesBoard.texture?.size() {
@@ -112,19 +112,19 @@ class GameScene: BaseScene {
         setTilesLine()
         setTiles()
         
-        let menuButton = SKSpriteNode(imageNamed: Resources.Buttons.menuButton)
-        menuButton.name = Resources.Buttons.menuButton
+        let menuButton = SKSpriteNode(imageNamed: Resources.Buttons.menu)
+        menuButton.name = Resources.Buttons.menu
         menuButton.size = CGSize(width: 51, height: 51)
         menuButton.position = CGPoint(x: frame.minX + 90, y: frame.maxY - 60)
         addChild(menuButton)
         
-        soundButton = SKSpriteNode(imageNamed: gameController.isSoundMuted ? Resources.Buttons.unmuteSoundButton : Resources.Buttons.soundButton)
-        soundButton.name = Resources.Buttons.soundButton
+        soundButton = SKSpriteNode(imageNamed: gameController.isSoundMuted ? Resources.Buttons.unmuteSound : Resources.Buttons.sound)
+        soundButton.name = Resources.Buttons.sound
         soundButton.size = menuButton.size
         soundButton.position = CGPoint(x: menuButton.position.x + 55, y: menuButton.position.y)
         addChild(soundButton)
         
-        let lifesLabel = SKSpriteNode(imageNamed: Resources.Labels.lifesLabel)
+        let lifesLabel = SKSpriteNode(imageNamed: Resources.Labels.lifes)
         lifesLabel.size = CGSize(width: menuButton.size.width * 2 + 6, height: menuButton.size.height)
         lifesLabel.position = CGPoint(x: menuButton.frame.maxX + 3, y: menuButton.position.y - 55)
         addChild(lifesLabel)
@@ -137,11 +137,11 @@ class GameScene: BaseScene {
         lifesCount.zPosition = 1
         addChild(lifesCount)
         
-        let restartButton = SKSpriteNode(imageNamed: Resources.Buttons.bigRestartButton)
+        let restartButton = SKSpriteNode(imageNamed: Resources.Buttons.bigRestart)
         if let size = restartButton.texture?.size() {
             restartButton.size = CGSize(width: size.width * 1.3, height: size.height * 1.3)
         }
-        restartButton.name = Resources.Buttons.bigRestartButton
+        restartButton.name = Resources.Buttons.bigRestart
         restartButton.position = CGPoint(x: tilesBoard.frame.maxX + 100, y: frame.midY)
         restartButton.size = CGSize(width: menuButton.size.width * 2, height: menuButton.size.height * 2)
         addChild(restartButton)
@@ -172,7 +172,7 @@ class GameScene: BaseScene {
     
     private func isGameOverHorizontally(row: Int, col: Int) -> Bool {
         if row >= 1 {
-            if tiles[row][col].name == Resources.Tiles.questionMarkTile || tiles[row-1][col].name == Resources.Tiles.questionMarkTile {
+            if tiles[row][col].name == Resources.Tiles.questionMark || tiles[row-1][col].name == Resources.Tiles.questionMark {
                 return true
             } else if tiles[row][col].name == tiles[row-1][col].name {
                 return true
@@ -183,7 +183,7 @@ class GameScene: BaseScene {
     
     private func isGameOverVertically(row: Int, col: Int) -> Bool {
         if col >= 1 {
-            if tiles[row][col].name == Resources.Tiles.questionMarkTile || tiles[row][col-1].name == Resources.Tiles.questionMarkTile {
+            if tiles[row][col].name == Resources.Tiles.questionMark || tiles[row][col-1].name == Resources.Tiles.questionMark {
                 return true
             } else if tiles[row][col].name == tiles[row][col-1].name {
                 return true
@@ -193,8 +193,8 @@ class GameScene: BaseScene {
     }
     
     private func setTilesLine() {
-        let tileBackground = SKSpriteNode(imageNamed: Resources.Tiles.tileBackground)
-        tileBackground.name = Resources.Tiles.tileBackground + "1"
+        let tileBackground = SKSpriteNode(imageNamed: Resources.Tiles.background)
+        tileBackground.name = Resources.Tiles.background + "1"
         tileBackground.size = getBackgroundSizeOnLine(node: tileBackground)
         tileBackground.zPosition = -1
         tileBackground.position = getStartBackgroundPositionOnLine()
@@ -202,8 +202,8 @@ class GameScene: BaseScene {
         addChild(tileBackground)
         
         for i in 1...level+3 {
-            let tilesBackground = SKSpriteNode(imageNamed: Resources.Tiles.tileBackground)
-            tilesBackground.name = Resources.Tiles.tileBackground + String(i+1)
+            let tilesBackground = SKSpriteNode(imageNamed: Resources.Tiles.background)
+            tilesBackground.name = Resources.Tiles.background + String(i+1)
             tilesBackground.size = tileBackground.size
             tilesBackground.position = CGPoint(x: tileBackground.position.x + tileBackground.size.width * CGFloat(i), y: tileBackground.position.y)
             tilesBackground.zPosition = -1
@@ -214,7 +214,7 @@ class GameScene: BaseScene {
         for i in tilesBackgroundLine.indices {
             let tileLine = SKSpriteNode(imageNamed: tilesImage[i])
             tileLine.name = tilesImage[i]
-            if tilesImage[i] == Resources.Tiles.bombTile {
+            if tilesImage[i] == Resources.Tiles.bomb {
                 if let size = tileLine.texture?.size() {
                     if level == 6 {
                         tileLine.size = CGSize(width: size.width * 0.5, height: size.height * 0.5)
@@ -222,7 +222,7 @@ class GameScene: BaseScene {
                         tileLine.size = CGSize(width: size.width * 0.5, height: size.height * 0.5)
                     }
                 }
-            } else if tilesImage[i] == Resources.Tiles.moonTile {
+            } else if tilesImage[i] == Resources.Tiles.moon {
                 if let size = tileLine.texture?.size() {
                     tileLine.size = CGSize(width: size.width * 1.15, height: size.height * 1.15)
                 }
@@ -237,7 +237,7 @@ class GameScene: BaseScene {
     
     private func isSameTileRepeatedHorizontally(row: Int, col: Int) -> Bool {
         if row >= 1 && row != tiles.count-1 {
-            if tiles[row][col].name == Resources.Tiles.questionMarkTile && tiles[row-1][col].name == Resources.Tiles.questionMarkTile {
+            if tiles[row][col].name == Resources.Tiles.questionMark && tiles[row-1][col].name == Resources.Tiles.questionMark {
                 return false
             } else if tiles[row][col].name == tiles[row-1][col].name || tiles[row][col].name == tiles[row+1][col].name {
                 return true
@@ -256,7 +256,7 @@ class GameScene: BaseScene {
     
     private func isSameTileRepeatedVertically(row: Int, col: Int) -> Bool {
         if col >= 1 && col != tiles[row].count-1  {
-            if tiles[row][col].name == Resources.Tiles.questionMarkTile && tiles[row][col-1].name == Resources.Tiles.questionMarkTile {
+            if tiles[row][col].name == Resources.Tiles.questionMark && tiles[row][col-1].name == Resources.Tiles.questionMark {
                 return false
             } else if tiles[row][col].name == tiles[row][col-1].name || tiles[row][col].name == tiles[row][col+1].name {
                 return true
@@ -382,24 +382,24 @@ class GameScene: BaseScene {
     private func setTiles() {
         switch level {
         case 1:
-            tiles = Array(repeating: Array(repeating: SKSpriteNode(imageNamed: Resources.Tiles.questionMarkTile), count: 5), count: 3)
+            tiles = Array(repeating: Array(repeating: SKSpriteNode(imageNamed: Resources.Tiles.questionMark), count: 5), count: 3)
         case 2:
-            tiles = Array(repeating: Array(repeating: SKSpriteNode(imageNamed: Resources.Tiles.questionMarkTile), count: 6), count: 4)
+            tiles = Array(repeating: Array(repeating: SKSpriteNode(imageNamed: Resources.Tiles.questionMark), count: 6), count: 4)
         case 3:
-            tiles = Array(repeating: Array(repeating: SKSpriteNode(imageNamed: Resources.Tiles.questionMarkTile), count: 7), count: 5)
+            tiles = Array(repeating: Array(repeating: SKSpriteNode(imageNamed: Resources.Tiles.questionMark), count: 7), count: 5)
         case 4:
-            tiles = Array(repeating: Array(repeating: SKSpriteNode(imageNamed: Resources.Tiles.questionMarkTile), count: 8), count: 6)
+            tiles = Array(repeating: Array(repeating: SKSpriteNode(imageNamed: Resources.Tiles.questionMark), count: 8), count: 6)
         case 5:
-            tiles = Array(repeating: Array(repeating: SKSpriteNode(imageNamed: Resources.Tiles.questionMarkTile), count: 9), count: 6)
+            tiles = Array(repeating: Array(repeating: SKSpriteNode(imageNamed: Resources.Tiles.questionMark), count: 9), count: 6)
         case 6:
-            tiles = Array(repeating: Array(repeating: SKSpriteNode(imageNamed: Resources.Tiles.questionMarkTile), count: 10), count: 7)
+            tiles = Array(repeating: Array(repeating: SKSpriteNode(imageNamed: Resources.Tiles.questionMark), count: 10), count: 7)
         case 7:
-            tiles = Array(repeating: Array(repeating: SKSpriteNode(imageNamed: Resources.Tiles.questionMarkTile), count: 11), count: 8)
+            tiles = Array(repeating: Array(repeating: SKSpriteNode(imageNamed: Resources.Tiles.questionMark), count: 11), count: 8)
         default: break
         }
         
-        let startTile = SKSpriteNode(imageNamed: Resources.Tiles.questionMarkTile)
-        startTile.name = Resources.Tiles.questionMarkTile
+        let startTile = SKSpriteNode(imageNamed: Resources.Tiles.questionMark)
+        startTile.name = Resources.Tiles.questionMark
         startTile.size = getStartTileSizeOnBoard(node: startTile)
         startTile.position = getStartTilePositionOnBoard()
         tiles[0][0] = startTile
@@ -410,8 +410,8 @@ class GameScene: BaseScene {
                 if i.offset == 0 && j.offset == 0 {
                     continue
                 }
-                let tile = SKSpriteNode(imageNamed: Resources.Tiles.questionMarkTile)
-                tile.name = Resources.Tiles.questionMarkTile
+                let tile = SKSpriteNode(imageNamed: Resources.Tiles.questionMark)
+                tile.name = Resources.Tiles.questionMark
                 tile.size = startTile.size
                 tile.position = CGPoint(x: startTile.position.x + (tile.size.width * 1.18) * CGFloat(j.offset), y: startTile.position.y - (tile.size.height * 1.25) * CGFloat(i.offset))
                 tiles[i.offset][j.offset] = tile

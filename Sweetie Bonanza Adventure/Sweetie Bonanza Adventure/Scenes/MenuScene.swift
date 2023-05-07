@@ -15,7 +15,7 @@ class MenuScene: BaseScene {
         for touch in touches {
             if let node = atPoint(touch.location(in: self)) as? SKSpriteNode {
                 switch node.name {
-                case Resources.Buttons.giftButton:
+                case Resources.Buttons.gift:
                     if let bonusTime = gameController.lastPickupBonus {
                         if !Calendar.current.isDateInToday(bonusTime) {
                             gameController.giftButtonPressed()
@@ -25,13 +25,13 @@ class MenuScene: BaseScene {
                     } else {
                         gameController.giftButtonPressed()
                     }
-                case Resources.Buttons.soundButton:
+                case Resources.Buttons.sound:
                     gameController.soundButtonPressed()
-                case Resources.Buttons.newGameButton:
+                case Resources.Buttons.newGame:
                     gameController.newGameButtonPressed()
-                case Resources.Buttons.continueButton:
+                case Resources.Buttons.`continue`:
                     gameController.continueButtonPressed()
-                case Resources.Buttons.shopButton:
+                case Resources.Buttons.shop:
                     gameController.shopButtonPressed()
                 default: break
                 }
@@ -40,25 +40,25 @@ class MenuScene: BaseScene {
     }
     
     override func setupUI() {
-        setBackground(with: Resources.Backgrounds.menuBackground)
+        setBackground(with: Resources.Backgrounds.menu)
         
-        let coinsLabel = SKSpriteNode(imageNamed: Resources.Labels.coinsLabel)
+        let coinsLabel = SKSpriteNode(imageNamed: Resources.Labels.coins)
         coinsLabel.position = CGPoint(x: frame.maxX - 140, y: frame.maxY - 60)
         addChild(coinsLabel)
         
-        let giftButton = SKSpriteNode(imageNamed: Resources.Buttons.giftButton)
-        giftButton.name = Resources.Buttons.giftButton
+        let giftButton = SKSpriteNode(imageNamed: Resources.Buttons.gift)
+        giftButton.name = Resources.Buttons.gift
         giftButton.size = CGSize(width: coinsLabel.size.height, height: coinsLabel.size.height)
         giftButton.position = CGPoint(x: frame.minX + 90, y: frame.maxY - 60)
         addChild(giftButton)
         
-        soundButton = SKSpriteNode(imageNamed: gameController.isSoundMuted ? Resources.Buttons.unmuteSoundButton : Resources.Buttons.soundButton)
-        soundButton.name = Resources.Buttons.soundButton
+        soundButton = SKSpriteNode(imageNamed: gameController.isSoundMuted ? Resources.Buttons.unmuteSound : Resources.Buttons.sound)
+        soundButton.name = Resources.Buttons.sound
         soundButton.size = giftButton.size
         soundButton.position = CGPoint(x: giftButton.position.x + 55, y: giftButton.position.y)
         addChild(soundButton)
         
-        let lifesLabel = SKSpriteNode(imageNamed: Resources.Labels.lifesLabel)
+        let lifesLabel = SKSpriteNode(imageNamed: Resources.Labels.lifes)
         lifesLabel.size = CGSize(width: giftButton.size.width * 2 + 6, height: giftButton.size.height)
         lifesLabel.position = CGPoint(x: giftButton.frame.maxX + 3, y: giftButton.position.y - 55)
         addChild(lifesLabel)
@@ -79,19 +79,19 @@ class MenuScene: BaseScene {
         coinsCount.zPosition = 1
         addChild(coinsCount)
         
-        let shopButton = SKSpriteNode(imageNamed: Resources.Buttons.shopButton)
-        shopButton.name = Resources.Buttons.shopButton
+        let shopButton = SKSpriteNode(imageNamed: Resources.Buttons.shop)
+        shopButton.name = Resources.Buttons.shop
         shopButton.position = CGPoint(x: frame.midX, y: frame.minY + 70)
         addChild(shopButton)
         
-        let newGameButton = SKSpriteNode(imageNamed: Resources.Buttons.newGameButton)
-        newGameButton.name = Resources.Buttons.newGameButton
+        let newGameButton = SKSpriteNode(imageNamed: Resources.Buttons.newGame)
+        newGameButton.name = Resources.Buttons.newGame
         newGameButton.size = shopButton.size
         newGameButton.position = CGPoint(x: shopButton.frame.midX - 110, y: shopButton.position.y + shopButton.size.height + 7)
         addChild(newGameButton)
         
-        let continueButton = SKSpriteNode(imageNamed: Resources.Buttons.continueButton)
-        continueButton.name = Resources.Buttons.continueButton
+        let continueButton = SKSpriteNode(imageNamed: Resources.Buttons.`continue`)
+        continueButton.name = Resources.Buttons.`continue`
         continueButton.size = shopButton.size
         continueButton.position = CGPoint(x: shopButton.frame.midX + 110, y: newGameButton.position.y)
         addChild(continueButton)

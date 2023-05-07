@@ -13,7 +13,7 @@ class GameViewController: UIViewController {
     // MARK: Game state & settings propertys
     var isSoundMuted = false {
         didSet {
-            let soundImage = isSoundMuted ? Resources.Buttons.unmuteSoundButton : Resources.Buttons.soundButton
+            let soundImage = isSoundMuted ? Resources.Buttons.unmuteSound : Resources.Buttons.sound
             menuScene.soundButton.texture = SKTexture(imageNamed: soundImage)
             dailyBonusScene.soundButton.texture = SKTexture(imageNamed: soundImage)
             storeScene.soundButton.texture = SKTexture(imageNamed: soundImage)

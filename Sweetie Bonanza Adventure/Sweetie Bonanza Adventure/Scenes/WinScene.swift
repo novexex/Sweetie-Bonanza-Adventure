@@ -23,13 +23,13 @@ class WinScene: BaseScene {
         for touch in touches {
             if let node = atPoint(touch.location(in: self)) as? SKSpriteNode {
                 switch node.name {
-                case Resources.Buttons.menuButton:
+                case Resources.Buttons.menu:
                     gameController.menuButtonPressed()
-                case Resources.Buttons.soundButton:
+                case Resources.Buttons.sound:
                     gameController.soundButtonPressed()
-                case Resources.Buttons.restartButton:
+                case Resources.Buttons.restart:
                     gameController.restartButtonPressed(level: level)
-                case Resources.Buttons.continueToWinButton:
+                case Resources.Buttons.continueToWin:
                     gameController.continueToWinButtonPressed(level: level)
                 default: break
                 }
@@ -38,29 +38,29 @@ class WinScene: BaseScene {
     }
     
     override func setupUI() {
-        setBackground(with: Resources.Backgrounds.winBackground)
+        setBackground(with: Resources.Backgrounds.win)
         
-        let menuButton = SKSpriteNode(imageNamed: Resources.Buttons.menuButton)
-        menuButton.name = Resources.Buttons.menuButton
+        let menuButton = SKSpriteNode(imageNamed: Resources.Buttons.menu)
+        menuButton.name = Resources.Buttons.menu
         menuButton.size = CGSize(width: 51, height: 51)
         menuButton.position = CGPoint(x: frame.minX + 90, y: frame.maxY - 60)
         addChild(menuButton)
         
-        soundButton = SKSpriteNode(imageNamed: gameController.isSoundMuted ? Resources.Buttons.unmuteSoundButton : Resources.Buttons.soundButton)
-        soundButton.name = Resources.Buttons.soundButton
+        soundButton = SKSpriteNode(imageNamed: gameController.isSoundMuted ? Resources.Buttons.unmuteSound : Resources.Buttons.sound)
+        soundButton.name = Resources.Buttons.sound
         soundButton.size = menuButton.size
         soundButton.position = CGPoint(x: menuButton.position.x + 55, y: menuButton.position.y)
         addChild(soundButton)
         
-        let restartButton = SKSpriteNode(imageNamed: Resources.Buttons.restartButton)
-        restartButton.name = Resources.Buttons.restartButton
+        let restartButton = SKSpriteNode(imageNamed: Resources.Buttons.restart)
+        restartButton.name = Resources.Buttons.restart
         restartButton.size = menuButton.size
         restartButton.position = CGPoint(x: frame.maxX - 140, y: menuButton.position.y)
         addChild(restartButton)
         
         let plusAmountLabel = SKLabelNode(text: "+" + String(getPlusAmount()))
         plusAmountLabel.fontName = Resources.Fonts.RifficFree_Bold
-        plusAmountLabel.fontColor = UIColor(named: Resources.Colors.fontColor)
+        plusAmountLabel.fontColor = UIColor(named: Resources.Colors.font)
         plusAmountLabel.fontSize = 30
         plusAmountLabel.position = CGPoint(x: frame.midX, y: frame.midY)
         addChild(plusAmountLabel)
@@ -68,12 +68,12 @@ class WinScene: BaseScene {
         let unlockedLabel = SKLabelNode(text: "NEW ITEM UNLOCKED:")
         unlockedLabel.fontName = Resources.Fonts.RifficFree_Bold
         unlockedLabel.horizontalAlignmentMode = .right
-        unlockedLabel.fontColor = UIColor(named: Resources.Colors.fontColor)
+        unlockedLabel.fontColor = UIColor(named: Resources.Colors.font)
         unlockedLabel.fontSize = 15
         unlockedLabel.position = CGPoint(x: plusAmountLabel.frame.maxX - 10, y: plusAmountLabel.frame.minY - 50)
         addChild(unlockedLabel)
         
-        let unlockedItemBackground = SKSpriteNode(imageNamed: Resources.Tiles.tileBackground)
+        let unlockedItemBackground = SKSpriteNode(imageNamed: Resources.Tiles.background)
         if let size = unlockedItemBackground.texture?.size() {
             unlockedItemBackground.size = CGSize(width: size.width * 1.8, height: size.height * 1.8)
         }
@@ -88,11 +88,11 @@ class WinScene: BaseScene {
         unlockedItemLabel.zPosition = 1
         addChild(unlockedItemLabel)
         
-        let continueToWinButton = SKSpriteNode(imageNamed: Resources.Buttons.continueToWinButton)
+        let continueToWinButton = SKSpriteNode(imageNamed: Resources.Buttons.continueToWin)
         if let size = continueToWinButton.texture?.size() {
             continueToWinButton.size = CGSize(width: size.width * 0.5, height: size.height * 0.5)
         }
-        continueToWinButton.name = Resources.Buttons.continueToWinButton
+        continueToWinButton.name = Resources.Buttons.continueToWin
         continueToWinButton.position = CGPoint(x: plusAmountLabel.position.x, y: plusAmountLabel.position.y - 120)
         addChild(continueToWinButton)
     }

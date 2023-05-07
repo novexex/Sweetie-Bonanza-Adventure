@@ -19,23 +19,23 @@ class DailyBonusScene: BaseScene {
     var coinsCount = SKLabelNode()
     
     private var claimButtons = [SKSpriteNode]()
-    private var claimAmount = [Resources.Labels.candyLabel500, Resources.Labels.candyLabel1000, Resources.Labels.candyLabel2000]
+    private var claimAmount = [Resources.Labels.smallCandy, Resources.Labels.mediumCandy, Resources.Labels.largeCandy]
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
             if let node = atPoint(touch.location(in: self)) as? SKSpriteNode {
                 switch node.name {
-                case Resources.Buttons.menuButton:
+                case Resources.Buttons.menu:
                     gameController.menuButtonPressed()
-                case Resources.Buttons.soundButton:
+                case Resources.Buttons.sound:
                     gameController.soundButtonPressed()
-                case Resources.Buttons.claimGiftButton + "1":
+                case Resources.Buttons.claimGift + "1":
                     gameController.makeSound()
                     if !isBonusClaimed { claimProcessing(clicked: 1) }
-                case Resources.Buttons.claimGiftButton + "2":
+                case Resources.Buttons.claimGift + "2":
                     gameController.makeSound()
                     if !isBonusClaimed { claimProcessing(clicked: 2) }
-                case Resources.Buttons.claimGiftButton + "3":
+                case Resources.Buttons.claimGift + "3":
                     gameController.makeSound()
                     if !isBonusClaimed { claimProcessing(clicked: 3) }
                 default: break
@@ -45,25 +45,25 @@ class DailyBonusScene: BaseScene {
     }
     
     override func setupUI() {
-        setBackground(with: Resources.Backgrounds.dailyBonusBackground)
+        setBackground(with: Resources.Backgrounds.dailyBonus)
         
-        let coinsLabel = SKSpriteNode(imageNamed: Resources.Labels.coinsLabel)
+        let coinsLabel = SKSpriteNode(imageNamed: Resources.Labels.coins)
         coinsLabel.position = CGPoint(x: frame.maxX - 140, y: frame.maxY - 60)
         addChild(coinsLabel)
         
-        let menuButton = SKSpriteNode(imageNamed: Resources.Buttons.menuButton)
-        menuButton.name = Resources.Buttons.menuButton
+        let menuButton = SKSpriteNode(imageNamed: Resources.Buttons.menu)
+        menuButton.name = Resources.Buttons.menu
         menuButton.size = CGSize(width: coinsLabel.size.height, height: coinsLabel.size.height)
         menuButton.position = CGPoint(x: frame.minX + 90, y: frame.maxY - 60)
         addChild(menuButton)
         
-        soundButton = SKSpriteNode(imageNamed: gameController.isSoundMuted ? Resources.Buttons.unmuteSoundButton : Resources.Buttons.soundButton)
-        soundButton.name = Resources.Buttons.soundButton
+        soundButton = SKSpriteNode(imageNamed: gameController.isSoundMuted ? Resources.Buttons.unmuteSound : Resources.Buttons.sound)
+        soundButton.name = Resources.Buttons.sound
         soundButton.size = menuButton.size
         soundButton.position = CGPoint(x: menuButton.position.x + 55, y: menuButton.position.y)
         addChild(soundButton)
         
-        let lifesLabel = SKSpriteNode(imageNamed: Resources.Labels.lifesLabel)
+        let lifesLabel = SKSpriteNode(imageNamed: Resources.Labels.lifes)
         lifesLabel.size = CGSize(width: menuButton.size.width * 2 + 6, height: menuButton.size.height)
         lifesLabel.position = CGPoint(x: menuButton.frame.maxX + 3, y: menuButton.position.y - 55)
         addChild(lifesLabel)
@@ -84,19 +84,19 @@ class DailyBonusScene: BaseScene {
         coinsCount.zPosition = 1
         addChild(coinsCount)
         
-        let claimGiftButton2 = SKSpriteNode(imageNamed: Resources.Buttons.claimGiftButton)
-        claimGiftButton2.name = Resources.Buttons.claimGiftButton + "2"
+        let claimGiftButton2 = SKSpriteNode(imageNamed: Resources.Buttons.claimGift)
+        claimGiftButton2.name = Resources.Buttons.claimGift + "2"
         claimGiftButton2.position = CGPoint(x: frame.midX, y: frame.midY - 100)
         addChild(claimGiftButton2)
         
-        let claimGiftButton1 = SKSpriteNode(imageNamed: Resources.Buttons.claimGiftButton)
-        claimGiftButton1.name = Resources.Buttons.claimGiftButton + "1"
+        let claimGiftButton1 = SKSpriteNode(imageNamed: Resources.Buttons.claimGift)
+        claimGiftButton1.name = Resources.Buttons.claimGift + "1"
         claimGiftButton1.size = claimGiftButton2.size
         claimGiftButton1.position = CGPoint(x: claimGiftButton2.position.x - 170, y: claimGiftButton2.position.y)
         addChild(claimGiftButton1)
         
-        let claimGiftButton3 = SKSpriteNode(imageNamed: Resources.Buttons.claimGiftButton)
-        claimGiftButton3.name = Resources.Buttons.claimGiftButton + "3"
+        let claimGiftButton3 = SKSpriteNode(imageNamed: Resources.Buttons.claimGift)
+        claimGiftButton3.name = Resources.Buttons.claimGift + "3"
         claimGiftButton3.size = claimGiftButton2.size
         claimGiftButton3.position = CGPoint(x: claimGiftButton2.position.x + 170, y: claimGiftButton2.position.y)
         addChild(claimGiftButton3)
