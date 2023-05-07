@@ -11,18 +11,21 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "GameScene.touchesBegan(_:with:):GameScene.swift">
+         contextName = "GameViewController.setupGame():GameViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "lifesCount.name">
+               value = "lifesCount">
+            </PersistentString>
+            <PersistentString
+               value = "isFirstLaunch">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "GameViewController.lifesCount.getter:GameViewController.swift">
+         contextName = "GameScene.touchesBegan(_:with:):GameScene.swift">
          <PersistentStrings>
             <PersistentString
-               value = "lifesCount">
+               value = "lifesCount.name">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -35,13 +38,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "GameViewController.setupGame():GameViewController.swift">
+         contextName = "GameViewController.init(nibName:bundle:):GameViewController.swift">
          <PersistentStrings>
             <PersistentString
                value = "lifesCount">
-            </PersistentString>
-            <PersistentString
-               value = "isFirstLaunch">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -57,6 +57,23 @@
          contextName = "GameViewController.getGameSetup():GameViewController.swift">
       </ContextState>
       <ContextState
+         contextName = "GameScene.isSameTileRepeatedVertically(row:col:):GameScene.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "i.offset">
+            </PersistentString>
+            <PersistentString
+               value = "tiles[row][j.offset].name">
+            </PersistentString>
+            <PersistentString
+               value = "tiles[row][col].name">
+            </PersistentString>
+            <PersistentString
+               value = "j.offset">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "GameViewController.lifesCount.setter:GameViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -65,7 +82,7 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "GameViewController.init(nibName:bundle:):GameViewController.swift">
+         contextName = "GameViewController.lifesCount.getter:GameViewController.swift">
          <PersistentStrings>
             <PersistentString
                value = "lifesCount">

@@ -19,6 +19,8 @@ enum Resources {
         static let bigRestart = "bigRestartButton"
         static let restart = "restartButton"
         static let continueToWin = "continueToWinButton"
+        static let guide = "guideButton"
+        static let dismiss = "dismissButton"
     }
     
     enum Names {
@@ -53,6 +55,7 @@ enum Resources {
         static let game = "gameBackground"
         static let win = "winBackground"
         static let lose = "loseBackground"
+        static let guide = "guideBackground"
     }
     
     enum Fonts {

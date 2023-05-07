@@ -36,6 +36,7 @@ class GameViewController: UIViewController {
             gameScene.soundButton.texture = SKTexture(imageNamed: soundImage)
             winScene.soundButton.texture = SKTexture(imageNamed: soundImage)
             loseScene.soundButton.texture = SKTexture(imageNamed: soundImage)
+            guideScene.soundButton.texture = SKTexture(imageNamed: soundImage)
             if isSoundMuted {
                 backgroundMusic?.pause()
                 clickSound?.volume = 0
@@ -72,7 +73,9 @@ class GameViewController: UIViewController {
     private lazy var dailyBonusScene = DailyBonusScene(size: view.bounds.size, gameController: self)
     private lazy var winScene = WinScene(size: view.bounds.size, gameController: self, level: availableLevel)
     private lazy var loseScene = LoseScene(size: view.bounds.size, gameController: self, level: availableLevel)
+    private lazy var guideScene = GuideScene(size: view.bounds.size, gameController: self)
     private weak var currentScene: BaseScene!
+    private weak var prevScene: BaseScene!
     
     // MARK: Override methods
     override func viewDidLoad() {
@@ -137,6 +140,17 @@ class GameViewController: UIViewController {
     func menuButtonPressed() {
         makeClickSound()
         presentBaseScene(menuScene)
+    }
+    
+    func guideButtonPressed() {
+        makeClickSound()
+        presentBaseScene(guideScene)
+    }
+    
+    func dismissButtonPressed() {
+        makeClickSound()
+        gameScene = GameScene(size: view.bounds.size, gameController: self, level: availableLevel)
+        presentBaseScene(gameScene)
     }
     
     func restartButtonPressed(level: Int) {

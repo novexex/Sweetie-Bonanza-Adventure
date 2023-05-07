@@ -24,6 +24,7 @@
 		EB70036D2A060CCE001A5DA1 /* clickSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EB70036C2A060CCE001A5DA1 /* clickSound.mp3 */; };
 		EB7003702A0610D9001A5DA1 /* winSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EB70036E2A0610D9001A5DA1 /* winSound.mp3 */; };
 		EB7003712A0610D9001A5DA1 /* loseSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EB70036F2A0610D9001A5DA1 /* loseSound.mp3 */; };
+		EB7003732A07D5FB001A5DA1 /* GuideScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7003722A07D5FB001A5DA1 /* GuideScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		EB70036C2A060CCE001A5DA1 /* clickSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = clickSound.mp3; sourceTree = "<group>"; };
 		EB70036E2A0610D9001A5DA1 /* winSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = winSound.mp3; sourceTree = "<group>"; };
 		EB70036F2A0610D9001A5DA1 /* loseSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = loseSound.mp3; sourceTree = "<group>"; };
+		EB7003722A07D5FB001A5DA1 /* GuideScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				EB0639C42A0274F7005AC3DC /* GameScene.swift */,
 				EB0639E42A03173D005AC3DC /* WinScene.swift */,
 				EB0639E62A031743005AC3DC /* LoseScene.swift */,
+				EB7003722A07D5FB001A5DA1 /* GuideScene.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -243,6 +246,7 @@
 				EB0639C52A0274F7005AC3DC /* GameScene.swift in Sources */,
 				EB0639C72A0274F7005AC3DC /* GameViewController.swift in Sources */,
 				EB0639DF2A0316EC005AC3DC /* MenuScene.swift in Sources */,
+				EB7003732A07D5FB001A5DA1 /* GuideScene.swift in Sources */,
 				EB0639E52A03173D005AC3DC /* WinScene.swift in Sources */,
 				EB0639E72A031743005AC3DC /* LoseScene.swift in Sources */,
 				EB0639BF2A0274F7005AC3DC /* AppDelegate.swift in Sources */,

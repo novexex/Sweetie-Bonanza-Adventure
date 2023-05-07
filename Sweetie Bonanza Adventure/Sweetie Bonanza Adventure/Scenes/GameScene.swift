@@ -42,7 +42,7 @@ class GameScene: BaseScene {
                 if elementSelected != -1 && elementSelected == i.offset {
                     gameController.makeClickSound()
                     elementSelected = -1
-                } else if elementSelected == -1 {
+                } else {
                     gameController.makeClickSound()
                     tilesLine[i.offset].size = CGSize(width: tilesLine[i.offset].size.width * 1.4, height: tilesLine[i.offset].size.height * 1.4)
                     elementSelected = i.offset
@@ -51,31 +51,33 @@ class GameScene: BaseScene {
         }
         
         // Tiles board line touch handler
-            for i in tiles.enumerated() {
-                for j in i.element.enumerated() {
-                    if j.element.contains(location) {
-                        if elementSelected != -1 {
-                            gameController.makeClickSound()
-                            if j.element.texture == tilesLine[elementSelected].texture {
-                                elementSelected = -1
-                                break
-                            }
-                            j.element.texture = tilesLine[elementSelected].texture
-                            j.element.name = tilesLine[elementSelected].name
+        for i in tiles.enumerated() {
+            for j in i.element.enumerated() {
+                if j.element.contains(location) {
+                    if elementSelected != -1 {
+                        gameController.makeClickSound()
+                        if j.element.texture == tilesLine[elementSelected].texture {
                             elementSelected = -1
-                            if isSameTileRepeatedVertically(row: i.offset, col: j.offset) || isSameTileRepeatedHorizontally(row: i.offset, col: j.offset) {
-                                gameController.lifesCount -= 1
-                                gameController.saveGameSetup()
-                            } else if gameOver() {
+                            break
+                        }
+                        j.element.texture = tilesLine[elementSelected].texture
+                        j.element.name = tilesLine[elementSelected].name
+                        elementSelected = -1
+                        if isSameTileRepeatedVertically(row: i.offset, col: j.offset) || isSameTileRepeatedHorizontally(row: i.offset, col: j.offset) {
+                            gameController.lifesCount -= 1
+                            gameController.saveGameSetup()
+                        } else if allBoardFilled() {
+                            if gameOver() {
                                 gameController.gameOver()
                             }
-                        } else {
-                            j.element.texture = SKTexture(imageNamed: Resources.Tiles.questionMark)
-                            j.element.name = Resources.Tiles.questionMark
                         }
+                    } else {
+                        j.element.texture = SKTexture(imageNamed: Resources.Tiles.questionMark)
+                        j.element.name = Resources.Tiles.questionMark
                     }
                 }
             }
+        }
         
         if gameController.lifesCount == 0 {
             gameController.gameOver()
@@ -90,6 +92,8 @@ class GameScene: BaseScene {
                     gameController.soundButtonPressed()
                 case Resources.Buttons.bigRestart:
                     gameController.restartButtonPressed(level: level)
+                case Resources.Buttons.guide:
+                    gameController.guideButtonPressed()
                 default: break
                 }
             }
@@ -137,6 +141,12 @@ class GameScene: BaseScene {
         lifesCountLabel.zPosition = 1
         addChild(lifesCountLabel)
         
+        let guideButton = SKSpriteNode(imageNamed: Resources.Buttons.guide)
+        guideButton.name = Resources.Buttons.guide
+        guideButton.size = menuButton.size
+        guideButton.position = CGPoint(x: frame.maxX - 120, y: menuButton.position.y)
+        addChild(guideButton)
+        
         let restartButton = SKSpriteNode(imageNamed: Resources.Buttons.bigRestart)
         if let size = restartButton.texture?.size() {
             restartButton.size = CGSize(width: size.width * 1.3, height: size.height * 1.3)
@@ -159,10 +169,10 @@ class GameScene: BaseScene {
         }
     }
     
-    private func gameOver() -> Bool {
+    private func allBoardFilled() -> Bool {
         for i in tiles.enumerated() {
             for j in i.element.enumerated() {
-                if isGameOverVertically(row: i.offset, col: j.offset) || isGameOverHorizontally(row: i.offset, col: j.offset) {
+                if tiles[i.offset][j.offset].name == Resources.Tiles.questionMark {
                     return false
                 }
             }
@@ -170,26 +180,15 @@ class GameScene: BaseScene {
         return true
     }
     
-    private func isGameOverHorizontally(row: Int, col: Int) -> Bool {
-        if row >= 1 {
-            if tiles[row][col].name == Resources.Tiles.questionMark || tiles[row-1][col].name == Resources.Tiles.questionMark {
-                return true
-            } else if tiles[row][col].name == tiles[row-1][col].name {
-                return true
+    private func gameOver() -> Bool {
+        for i in tiles.enumerated() {
+            for j in i.element.enumerated() {
+                if isSameTileRepeatedVertically(row: i.offset, col: j.offset) || isSameTileRepeatedHorizontally(row: i.offset, col: j.offset) {
+                    return false
+                }
             }
         }
-        return false
-    }
-    
-    private func isGameOverVertically(row: Int, col: Int) -> Bool {
-        if col >= 1 {
-            if tiles[row][col].name == Resources.Tiles.questionMark || tiles[row][col-1].name == Resources.Tiles.questionMark {
-                return true
-            } else if tiles[row][col].name == tiles[row][col-1].name {
-                return true
-            }
-        }
-        return false
+        return true
     }
     
     private func setTilesLine() {
@@ -236,18 +235,10 @@ class GameScene: BaseScene {
     }
     
     private func isSameTileRepeatedHorizontally(row: Int, col: Int) -> Bool {
-        if row >= 1 && row != tiles.count-1 {
-            if tiles[row][col].name == Resources.Tiles.questionMark && tiles[row-1][col].name == Resources.Tiles.questionMark {
-                return false
-            } else if tiles[row][col].name == tiles[row-1][col].name || tiles[row][col].name == tiles[row+1][col].name {
-                return true
-            }
-        } else if row == 0 {
-            if tiles[row][col].name == tiles[row+1][col].name {
-                return true
-            }
-        } else if row == tiles.count-1 {
-            if tiles[row][col].name == tiles[row-1][col].name {
+        for i in 0..<tiles.count {
+            if i == row {
+                continue
+            } else if tiles[row][col].name == tiles[i][col].name {
                 return true
             }
         }
@@ -255,18 +246,10 @@ class GameScene: BaseScene {
     }
     
     private func isSameTileRepeatedVertically(row: Int, col: Int) -> Bool {
-        if col >= 1 && col != tiles[row].count-1  {
-            if tiles[row][col].name == Resources.Tiles.questionMark && tiles[row][col-1].name == Resources.Tiles.questionMark {
-                return false
-            } else if tiles[row][col].name == tiles[row][col-1].name || tiles[row][col].name == tiles[row][col+1].name {
-                return true
-            }
-        } else if col == 0 {
-            if tiles[row][col].name == tiles[row][col+1].name {
-                return true
-            }
-        } else if col == tiles[row].count-1 {
-            if tiles[row][col].name == tiles[row][col-1].name {
+        for i in 0..<tiles[0].count {
+            if i == col {
+                continue
+            } else if tiles[row][col].name == tiles[row][i].name {
                 return true
             }
         }
