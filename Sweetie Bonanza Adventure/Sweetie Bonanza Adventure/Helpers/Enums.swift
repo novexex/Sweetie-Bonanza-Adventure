@@ -21,6 +21,12 @@ enum Resources {
         static let continueToWin = "continueToWinButton"
     }
     
+    enum Names {
+        static let buyThreeLifesButton = "buyThreeLifesButton"
+        static let buyOneLifeButton = "buyOneLifeButton"
+        static let buyFiveLifesButton = "buyFiveLifesButton"
+    }
+    
     enum Labels {
         static let coins = "coinsLabel"
         static let lifes = "lifesLabel"

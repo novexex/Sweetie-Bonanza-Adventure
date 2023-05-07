@@ -19,13 +19,13 @@ class StoreScene: BaseScene {
                     gameController.menuButtonPressed()
                 case Resources.Buttons.sound:
                     gameController.soundButtonPressed()
-                case "buyOneLifeButton":
+                case Resources.Names.buyOneLifeButton:
                     gameController.makeSound()
                     buyLifes(amount: 1)
-                case "buyThreeLifesButton":
+                case Resources.Names.buyThreeLifesButton:
                     gameController.makeSound()
                     buyLifes(amount: 3)
-                case "buyFiveLifesButton":
+                case Resources.Names.buyFiveLifesButton:
                     gameController.makeSound()
                     buyLifes(amount: 5)
                 default: break
@@ -87,17 +87,17 @@ class StoreScene: BaseScene {
         addChild(fiveLifesLabel)
         
         let buyThreeLifesButton = SKSpriteNode(imageNamed: Resources.Buttons.buy)
-        buyThreeLifesButton.name = "buyThreeLifesButton"
+        buyThreeLifesButton.name = Resources.Names.buyThreeLifesButton
         buyThreeLifesButton.position = CGPoint(x: threeLifesLabel.frame.midX, y: threeLifesLabel.frame.midY - 80)
         addChild(buyThreeLifesButton)
         
         let buyOneLifeButton = SKSpriteNode(imageNamed: Resources.Buttons.buy)
-        buyOneLifeButton.name = "buyOneLifeButton"
+        buyOneLifeButton.name = Resources.Names.buyOneLifeButton
         buyOneLifeButton.position = CGPoint(x: oneLifeLabel.frame.midX, y: oneLifeLabel.frame.midY - 80)
         addChild(buyOneLifeButton)
         
         let buyFiveLifesButton = SKSpriteNode(imageNamed: Resources.Buttons.buy)
-        buyFiveLifesButton.name = "buyFiveLifesButton"
+        buyFiveLifesButton.name = Resources.Names.buyFiveLifesButton
         buyFiveLifesButton.position = CGPoint(x: fiveLifesLabel.frame.midX, y: fiveLifesLabel.frame.midY - 80)
         addChild(buyFiveLifesButton)
     }
