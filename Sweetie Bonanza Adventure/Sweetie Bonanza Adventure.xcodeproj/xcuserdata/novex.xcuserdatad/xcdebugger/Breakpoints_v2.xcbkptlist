@@ -14,24 +14,8 @@
             filePath = "Sweetie Bonanza Adventure/ViewControllers/GameViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "EA39A409-68B9-4A51-9972-7D5B74129401"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Sweetie Bonanza Adventure/ViewControllers/GameViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -46,8 +30,8 @@
             filePath = "Sweetie Bonanza Adventure/ViewControllers/GameViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "242"
-            endingLineNumber = "242"
+            startingLineNumber = "282"
+            endingLineNumber = "282"
             landmarkName = "setupSKView()"
             landmarkType = "7">
             <Locations>
@@ -158,8 +142,8 @@
             filePath = "Sweetie Bonanza Adventure/ViewControllers/GameViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "263"
-            endingLineNumber = "263"
+            startingLineNumber = "303"
+            endingLineNumber = "303"
             landmarkName = "presentBaseScene(_:)"
             landmarkType = "7">
             <Locations>
@@ -238,8 +222,8 @@
             filePath = "Sweetie Bonanza Adventure/ViewControllers/GameViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "250"
-            endingLineNumber = "250"
+            startingLineNumber = "290"
+            endingLineNumber = "290"
             landmarkName = "setupGame()"
             landmarkType = "7">
             <Locations>
@@ -567,8 +551,8 @@
             filePath = "Sweetie Bonanza Adventure/ViewControllers/GameViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "256"
-            endingLineNumber = "256"
+            startingLineNumber = "296"
+            endingLineNumber = "296"
             landmarkName = "setupGame()"
             landmarkType = "7">
             <Locations>
@@ -615,8 +599,8 @@
             filePath = "Sweetie Bonanza Adventure/ViewControllers/GameViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "251"
-            endingLineNumber = "251"
+            startingLineNumber = "291"
+            endingLineNumber = "291"
             landmarkName = "setupGame()"
             landmarkType = "7">
          </BreakpointContent>
@@ -631,8 +615,8 @@
             filePath = "Sweetie Bonanza Adventure/ViewControllers/GameViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "91"
-            endingLineNumber = "91"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
             landmarkName = "saveGameSetup()"
             landmarkType = "7">
          </BreakpointContent>

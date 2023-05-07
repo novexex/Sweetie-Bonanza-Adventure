@@ -77,14 +77,25 @@ class GameViewController: UIViewController {
     private weak var currentScene: BaseScene!
     private weak var prevScene: BaseScene!
     
+    private let backgroundImageView = UIImageView()
+    private let spiralImageView = UIImageView()
+    private let candyImageView = UIImageView()
+    
     // MARK: Override methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupAlerts()
-        setupGame()
-        setupAudio()
-        setupSKView()
+        animation()
+ 
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            self.backgroundImageView.removeFromSuperview()
+            self.spiralImageView.removeFromSuperview()
+            self.candyImageView.removeFromSuperview()
+            self.setupAlerts()
+            self.setupGame()
+            self.setupAudio()
+            self.setupSKView()
+        }
     }
     
     // MARK: Public methods
@@ -196,6 +207,35 @@ class GameViewController: UIViewController {
     }
     
     // MARK: Private methods
+    private func animation() {
+        backgroundImageView.image = UIImage(named: "splashBackground")
+        backgroundImageView.contentMode = .scaleAspectFill
+        backgroundImageView.frame = view.frame
+        view.addSubview(backgroundImageView)
+        
+        // Set up spiral image view
+        spiralImageView.image = UIImage(named: "splashSpiral")
+        spiralImageView.contentMode = .scaleAspectFit
+        spiralImageView.frame = CGRect(x: view.frame.midX - 150, y: view.frame.midY - 150, width: 300, height: 300)
+        view.addSubview(spiralImageView)
+        
+        // Set up candy image view
+        candyImageView.image = UIImage(named: "splashCandy")
+        candyImageView.contentMode = .scaleAspectFit
+        candyImageView.frame = CGRect(x: view.frame.midX - 75, y: view.frame.midY - 75, width: 150, height: 150)
+        view.addSubview(candyImageView)
+        
+        // Create rotation animation
+        let rotationAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
+        rotationAnimation.toValue = NSNumber(value: Double.pi * 2)
+        rotationAnimation.duration = 1.5
+        rotationAnimation.isCumulative = true
+        rotationAnimation.repeatCount = Float.infinity
+        
+        // Add rotation animation to spiral image view
+        spiralImageView.layer.add(rotationAnimation, forKey: "rotationAnimation")
+    }
+    
     private func setupAudio() {
         if let musicURL = Bundle.main.url(forResource: "backgroundMusic", withExtension: "mp3") {
             do {
