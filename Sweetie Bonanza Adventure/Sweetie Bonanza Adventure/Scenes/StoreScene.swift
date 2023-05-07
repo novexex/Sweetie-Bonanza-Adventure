@@ -20,13 +20,13 @@ class StoreScene: BaseScene {
                 case Resources.Buttons.sound:
                     gameController.soundButtonPressed()
                 case Resources.Names.buyOneLifeButton:
-                    gameController.makeSound()
+                    gameController.makeClickSound()
                     buyLifes(amount: 1)
                 case Resources.Names.buyThreeLifesButton:
-                    gameController.makeSound()
+                    gameController.makeClickSound()
                     buyLifes(amount: 3)
                 case Resources.Names.buyFiveLifesButton:
-                    gameController.makeSound()
+                    gameController.makeClickSound()
                     buyLifes(amount: 5)
                 default: break
                 }

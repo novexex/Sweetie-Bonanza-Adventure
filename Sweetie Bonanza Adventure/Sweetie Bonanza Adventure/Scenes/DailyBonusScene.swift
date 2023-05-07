@@ -30,13 +30,13 @@ class DailyBonusScene: BaseScene {
                 case Resources.Buttons.sound:
                     gameController.soundButtonPressed()
                 case Resources.Buttons.claimGift + "1":
-                    gameController.makeSound()
+                    gameController.makeClickSound()
                     if !isBonusClaimed { claimProcessing(clicked: 1) }
                 case Resources.Buttons.claimGift + "2":
-                    gameController.makeSound()
+                    gameController.makeClickSound()
                     if !isBonusClaimed { claimProcessing(clicked: 2) }
                 case Resources.Buttons.claimGift + "3":
-                    gameController.makeSound()
+                    gameController.makeClickSound()
                     if !isBonusClaimed { claimProcessing(clicked: 3) }
                 default: break
                 }

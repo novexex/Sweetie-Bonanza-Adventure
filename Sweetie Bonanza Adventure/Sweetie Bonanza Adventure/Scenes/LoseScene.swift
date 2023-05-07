@@ -28,7 +28,7 @@ class LoseScene: BaseScene {
                 case Resources.Buttons.sound:
                     gameController.soundButtonPressed()
                 case Resources.Buttons.buy:
-                    gameController.makeSound()
+                    gameController.makeClickSound()
                     buyProcessing()
                 default: break
                 }

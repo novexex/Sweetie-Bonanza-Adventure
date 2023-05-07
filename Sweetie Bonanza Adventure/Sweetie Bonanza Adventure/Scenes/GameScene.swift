@@ -40,10 +40,10 @@ class GameScene: BaseScene {
         for i in tilesBackgroundLine.enumerated() {
             if i.element.contains(location) {
                 if elementSelected != -1 && elementSelected == i.offset {
-                    gameController.makeSound()
+                    gameController.makeClickSound()
                     elementSelected = -1
                 } else if elementSelected == -1 {
-                    gameController.makeSound()
+                    gameController.makeClickSound()
                     tilesLine[i.offset].size = CGSize(width: tilesLine[i.offset].size.width * 1.4, height: tilesLine[i.offset].size.height * 1.4)
                     elementSelected = i.offset
                 }
@@ -55,7 +55,7 @@ class GameScene: BaseScene {
                 for j in i.element.enumerated() {
                     if j.element.contains(location) {
                         if elementSelected != -1 {
-                            gameController.makeSound()
+                            gameController.makeClickSound()
                             if j.element.texture == tilesLine[elementSelected].texture {
                                 elementSelected = -1
                                 break

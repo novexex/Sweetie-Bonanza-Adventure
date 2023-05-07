@@ -10,7 +10,24 @@ import AVFoundation
 
 class GameViewController: UIViewController {
     // MARK: Game state & settings propertys
-    var isSoundMuted = false {
+    var lifesCount = 5 {
+        didSet {
+            menuScene.lifesCountLabel.text = String(lifesCount)
+            dailyBonusScene.lifesCountLabel.text = String(lifesCount)
+            storeScene.lifesCountLabel.text = String(lifesCount)
+            gameScene.lifesCountLabel.text = String(lifesCount)
+        }
+    }
+    var coinsCount = 0 {
+        didSet {
+            menuScene.coinsCountLabel.text = String(coinsCount)
+            dailyBonusScene.coinsCountLabel.text = String(coinsCount)
+            storeScene.coinsCountLabel.text = String(coinsCount)
+        }
+    }
+    var lastPickupBonus: Date?
+    
+    private(set) var isSoundMuted = false {
         didSet {
             let soundImage = isSoundMuted ? Resources.Buttons.unmuteSound : Resources.Buttons.sound
             menuScene.soundButton.texture = SKTexture(imageNamed: soundImage)
@@ -32,29 +49,13 @@ class GameViewController: UIViewController {
             }
         }
     }
-    var lifesCount = 5 {
-        didSet {
-            menuScene.lifesCountLabel.text = String(lifesCount)
-            dailyBonusScene.lifesCountLabel.text = String(lifesCount)
-            storeScene.lifesCountLabel.text = String(lifesCount)
-            gameScene.lifesCountLabel.text = String(lifesCount)
-        }
-    }
-    var coinsCount = 0 {
-        didSet {
-            menuScene.coinsCountLabel.text = String(coinsCount)
-            dailyBonusScene.coinsCountLabel.text = String(coinsCount)
-            storeScene.coinsCountLabel.text = String(coinsCount)
-        }
-    }
-    var availableLevel = 1 {
+    private var availableLevel = 1 {
         didSet {
             if availableLevel < 1 {
                 availableLevel = oldValue
             }
         }
     }
-    var lastPickupBonus: Date?
     private var isFirstLaunch = 0
     private var alertController = UIAlertController()
     
@@ -93,22 +94,22 @@ class GameViewController: UIViewController {
     }
     
     func soundButtonPressed() {
-        makeSound()
+        makeClickSound()
         isSoundMuted.toggle()
     }
     
     func giftButtonPressed() {
-        makeSound()
-        presentCustomScene(dailyBonusScene)
+        makeClickSound()
+        presentBaseScene(dailyBonusScene)
     }
     
     func newGameButtonPressed() {
-        makeSound()
+        makeClickSound()
         if lifesCount != 0 {
             availableLevel = 1
             saveGameSetup()
             gameScene = GameScene(size: view.bounds.size, gameController: self, level: availableLevel)
-            presentCustomScene(gameScene)
+            presentBaseScene(gameScene)
         } else {
             if let view = self.view {
                 view.window?.rootViewController?.present(alertController, animated: true, completion: nil)
@@ -117,10 +118,10 @@ class GameViewController: UIViewController {
     }
     
     func continueButtonPressed() {
-        makeSound()
+        makeClickSound()
         if lifesCount != 0 {
             gameScene = GameScene(size: view.bounds.size, gameController: self, level: availableLevel)
-            presentCustomScene(gameScene)
+            presentBaseScene(gameScene)
         } else {
             if let view = self.view {
                 view.window?.rootViewController?.present(alertController, animated: true, completion: nil)
@@ -129,20 +130,20 @@ class GameViewController: UIViewController {
     }
     
     func shopButtonPressed() {
-        makeSound()
-        presentCustomScene(storeScene)
+        makeClickSound()
+        presentBaseScene(storeScene)
     }
     
     func menuButtonPressed() {
-        makeSound()
-        presentCustomScene(menuScene)
+        makeClickSound()
+        presentBaseScene(menuScene)
     }
     
     func restartButtonPressed(level: Int) {
-        makeSound()
+        makeClickSound()
         if lifesCount != 0 {
             gameScene = GameScene(size: view.bounds.size, gameController: self, level: level)
-            presentCustomScene(gameScene)
+            presentBaseScene(gameScene)
         } else {
             if let view = self.view {
                 view.window?.rootViewController?.present(alertController, animated: true, completion: nil)
@@ -151,10 +152,10 @@ class GameViewController: UIViewController {
     }
     
     func continueToWinButtonPressed(level: Int) {
-        makeSound()
+        makeClickSound()
         if level <= 6 {
             gameScene = GameScene(size: view.bounds.size, gameController: self, level: level+1)
-            presentCustomScene(gameScene)
+            presentBaseScene(gameScene)
         }
     }
     
@@ -162,17 +163,17 @@ class GameViewController: UIViewController {
         if lifesCount == 0 {
             loseSound?.play()
             loseScene = LoseScene(size: view.bounds.size, gameController: self, level: availableLevel)
-            presentCustomScene(loseScene)
+            presentBaseScene(loseScene)
         } else {
             winSound?.play()
-            presentCustomScene(winScene)
+            presentBaseScene(winScene)
             coinsCount += getCoins(for: availableLevel)
             availableLevel += 1
             saveGameSetup()
         }
     }
     
-    func makeSound() {
+    func makeClickSound() {
         clickSound?.play()
     }
     
@@ -245,7 +246,7 @@ class GameViewController: UIViewController {
         }
     }
     
-    private func presentCustomScene(_ scene: BaseScene) {
+    private func presentBaseScene(_ scene: BaseScene) {
         if let view = view as? SKView {
             currentScene.removeAllChildren()
             currentScene = scene
