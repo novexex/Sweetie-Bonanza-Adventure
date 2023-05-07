@@ -195,9 +195,9 @@ class GameScene: Scene {
     private func setTilesLine() {
         let tileBackground = SKSpriteNode(imageNamed: Resources.Tiles.tileBackground)
         tileBackground.name = Resources.Tiles.tileBackground + "1"
-        tileBackground.size = getLineTilesBackgroundSize(node: tileBackground)
+        tileBackground.size = getBackgroundSizeOnLine(node: tileBackground)
         tileBackground.zPosition = -1
-        tileBackground.position = getStartLineBackgroundPosition()
+        tileBackground.position = getStartBackgroundPositionOnLine()
         tilesBackgroundLine[0] = tileBackground
         addChild(tileBackground)
         
@@ -227,7 +227,7 @@ class GameScene: Scene {
                     tileLine.size = CGSize(width: size.width * 1.15, height: size.height * 1.15)
                 }
             } else {
-                tileLine.size = getLineTileSize(node: tileLine)
+                tileLine.size = getTileSizeOnLine(node: tileLine)
             }
             tileLine.position = CGPoint(x: tilesBackgroundLine[i].frame.midX, y: tilesBackgroundLine[i].frame.midY)
             tilesLine[i] = tileLine
@@ -273,7 +273,7 @@ class GameScene: Scene {
         return false
     }
     
-    private func getLineTileSize(node: SKSpriteNode) -> CGSize {
+    private func getTileSizeOnLine(node: SKSpriteNode) -> CGSize {
         var returnSize = CGSize()
         if let size = node.texture?.size() {
             switch level {
@@ -293,7 +293,7 @@ class GameScene: Scene {
         return returnSize
     }
     
-    private func getLineTilesBackgroundSize(node: SKSpriteNode) -> CGSize {
+    private func getBackgroundSizeOnLine(node: SKSpriteNode) -> CGSize {
         var returnSize = CGSize()
         if let size = node.texture?.size() {
             switch level {
@@ -315,7 +315,7 @@ class GameScene: Scene {
         return returnSize
     }
     
-    private func getStartLineBackgroundPosition() -> CGPoint {
+    private func getStartBackgroundPositionOnLine() -> CGPoint {
         switch level {
         case 1:
             return CGPoint(x: tilesBoard.frame.minX + 75, y: tilesBoard.frame.maxY + 40)
@@ -336,7 +336,7 @@ class GameScene: Scene {
         }
     }
     
-    private func getStartTilePosition() -> CGPoint {
+    private func getStartTilePositionOnBoard() -> CGPoint {
         switch level {
         case 1:
             return CGPoint(x: tilesBoard.frame.minX + 37, y: tilesBoard.frame.maxY - 47)
@@ -357,7 +357,7 @@ class GameScene: Scene {
         }
     }
     
-    private func getStartTileSize(node: SKSpriteNode) -> CGSize {
+    private func getStartTileSizeOnBoard(node: SKSpriteNode) -> CGSize {
         var returnSize = CGSize()
         if let size = node.texture?.size() {
             switch level {
@@ -400,8 +400,8 @@ class GameScene: Scene {
         
         let startTile = SKSpriteNode(imageNamed: Resources.Tiles.questionMarkTile)
         startTile.name = Resources.Tiles.questionMarkTile
-        startTile.size = getStartTileSize(node: startTile)
-        startTile.position = getStartTilePosition()
+        startTile.size = getStartTileSizeOnBoard(node: startTile)
+        startTile.position = getStartTilePositionOnBoard()
         tiles[0][0] = startTile
         addChild(startTile)
         

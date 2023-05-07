@@ -10,7 +10,7 @@ import AVFoundation
 
 class GameViewController: UIViewController {
     // MARK: Propertys
-    // MARK: Game state & settings
+    // MARK: Game state & settings propertys
     var isSoundMuted = false {
         didSet {
             let soundImage = isSoundMuted ? Resources.Buttons.unmuteSoundButton : Resources.Buttons.soundButton
@@ -65,7 +65,7 @@ class GameViewController: UIViewController {
     private var winSound: AVAudioPlayer?
     private var loseSound: AVAudioPlayer?
     
-    // MARK: Scenes
+    // MARK: Scene propertys
     private lazy var menuScene = MenuScene(size: view.bounds.size, gameController: self)
     private lazy var gameScene = GameScene(size: view.bounds.size, gameController: self, level: availableLevel)
     private lazy var storeScene = StoreScene(size: view.bounds.size, gameController: self)
