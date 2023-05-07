@@ -322,9 +322,9 @@ class GameScene: BaseScene {
     private func getStartTilePositionOnBoard() -> CGPoint {
         switch level {
         case 1:
-            return CGPoint(x: tilesBoard.frame.minX + 37, y: tilesBoard.frame.maxY - 47)
+            return CGPoint(x: tilesBoard.frame.minX + 41, y: tilesBoard.frame.maxY - 47)
         case 2:
-            return CGPoint(x: tilesBoard.frame.minX + 32, y: tilesBoard.frame.maxY - 37)
+            return CGPoint(x: tilesBoard.frame.minX + 34, y: tilesBoard.frame.maxY - 37)
         case 3:
             return CGPoint(x: tilesBoard.frame.minX + 27, y: tilesBoard.frame.maxY - 30)
         case 4:
@@ -332,7 +332,7 @@ class GameScene: BaseScene {
         case 5:
             return CGPoint(x: tilesBoard.frame.minX + 24, y: tilesBoard.frame.maxY - 23)
         case 6:
-            return CGPoint(x: tilesBoard.frame.minX + 24, y: tilesBoard.frame.maxY - 23)
+            return CGPoint(x: tilesBoard.frame.minX + 21, y: tilesBoard.frame.maxY - 23)
         case 7:
             return CGPoint(x: tilesBoard.frame.minX + 18, y: tilesBoard.frame.maxY - 18)
         default:
@@ -345,17 +345,17 @@ class GameScene: BaseScene {
         if let size = node.texture?.size() {
             switch level {
             case 1:
-                returnSize = CGSize(width: size.width * 1.8, height: size.height * 1.75)
+                returnSize = CGSize(width: size.width * 0.25, height: size.height * 0.25)
             case 2:
-                returnSize = CGSize(width: size.width * 1.42, height: size.height * 1.32)
+                returnSize = CGSize(width: size.width * 0.2, height: size.height * 0.19)
             case 3:
-                returnSize = CGSize(width: size.width * 1.15, height: size.height * 1.06)
+                returnSize = CGSize(width: size.width * 0.164, height: size.height * 0.1493)
             case 4, 5:
-                returnSize = CGSize(width: size.width * 1.0, height: size.height * 0.91)
+                returnSize = CGSize(width: size.width * 0.145, height: size.height * 0.13)
             case 6:
-                returnSize = CGSize(width: size.width * 0.85, height: size.height * 0.76)
+                returnSize = CGSize(width: size.width * 0.125, height: size.height * 0.108)
             case 7:
-                returnSize = CGSize(width: size.width * 0.75, height: size.height * 0.66)
+                returnSize = CGSize(width: size.width * 0.109, height: size.height * 0.094)
             default: break
             }
         }

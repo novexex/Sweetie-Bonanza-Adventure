@@ -321,7 +321,7 @@
             startingLineNumber = "248"
             endingLineNumber = "248"
             landmarkName = "isSameTileRepeatedVertically(row:col:)"
-            landmarkType = "9">
+            landmarkType = "7">
             <Locations>
                <Location
                   uuid = "61AFAD87-61ED-470E-92E0-7BD0EAF56BDA - c820b30ac0f2b486"
@@ -400,7 +400,7 @@
             startingLineNumber = "183"
             endingLineNumber = "183"
             landmarkName = "gameOver()"
-            landmarkType = "9">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -650,7 +650,7 @@
             startingLineNumber = "237"
             endingLineNumber = "237"
             landmarkName = "isSameTileRepeatedHorizontally(row:col:)"
-            landmarkType = "9">
+            landmarkType = "7">
             <Locations>
                <Location
                   uuid = "4FFB43D5-FF93-42F5-8E18-072B079659A3 - d77d5e6a214d4bed"
@@ -713,8 +713,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "236"
             endingLineNumber = "236"
-            landmarkName = "isSameTileRepeatedHorizontally(row:col:)"
-            landmarkType = "9">
+            landmarkName = "GameScene"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -730,7 +730,7 @@
             startingLineNumber = "238"
             endingLineNumber = "238"
             landmarkName = "isSameTileRepeatedHorizontally(row:col:)"
-            landmarkType = "9">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -746,7 +746,7 @@
             startingLineNumber = "249"
             endingLineNumber = "249"
             landmarkName = "isSameTileRepeatedVertically(row:col:)"
-            landmarkType = "9">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
