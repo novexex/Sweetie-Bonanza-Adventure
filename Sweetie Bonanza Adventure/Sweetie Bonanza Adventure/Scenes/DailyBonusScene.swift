@@ -7,7 +7,7 @@
 
 import SpriteKit
 
-class DailyBonusScene: Scene {
+class DailyBonusScene: BaseScene {
     var isBonusClaimed = false {
         didSet {
             if isBonusClaimed {

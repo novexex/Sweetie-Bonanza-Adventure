@@ -7,7 +7,7 @@
 
 import SpriteKit
 
-class MenuScene: Scene {
+class MenuScene: BaseScene {
     var lifesCount = SKLabelNode()
     var coinsCount = SKLabelNode()
     

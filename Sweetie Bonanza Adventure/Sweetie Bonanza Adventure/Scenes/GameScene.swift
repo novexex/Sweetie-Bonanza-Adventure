@@ -7,7 +7,7 @@
 
 import SpriteKit
 
-class GameScene: Scene {
+class GameScene: BaseScene {
     let level: Int
     var lifesCount = SKLabelNode()
     private var tilesBoard = SKSpriteNode()

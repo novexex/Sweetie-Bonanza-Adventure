@@ -7,7 +7,7 @@
 
 import SpriteKit
 
-class LoseScene: Scene {
+class LoseScene: BaseScene {
     let level: Int
     
     init(size: CGSize, gameController: GameViewController, level: Int) {

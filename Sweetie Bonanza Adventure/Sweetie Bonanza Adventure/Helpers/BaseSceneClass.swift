@@ -7,7 +7,7 @@
 
 import SpriteKit
 
-class Scene: SKScene {
+class BaseScene: SKScene {
     weak var gameController: GameViewController!
     var soundButton = SKSpriteNode()
     

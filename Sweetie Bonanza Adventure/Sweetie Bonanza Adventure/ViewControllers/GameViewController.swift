@@ -72,7 +72,7 @@ class GameViewController: UIViewController {
     private lazy var dailyBonusScene = DailyBonusScene(size: view.bounds.size, gameController: self)
     private lazy var winScene = WinScene(size: view.bounds.size, gameController: self, level: availableLevel)
     private lazy var loseScene = LoseScene(size: view.bounds.size, gameController: self, level: availableLevel)
-    private weak var currentScene: Scene!
+    private weak var currentScene: BaseScene!
     
     // MARK: Override methods
     override func viewDidLoad() {
@@ -243,7 +243,7 @@ class GameViewController: UIViewController {
         }
     }
     
-    private func presentCustomScene(_ scene: Scene) {
+    private func presentCustomScene(_ scene: BaseScene) {
         if let view = view as? SKView {
             currentScene.removeAllChildren()
             currentScene = scene

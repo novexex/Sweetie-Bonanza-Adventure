@@ -7,7 +7,7 @@
 
 import SpriteKit
 
-class WinScene: Scene {
+class WinScene: BaseScene {
     let level: Int
     
     init(size: CGSize, gameController: GameViewController, level: Int) {
