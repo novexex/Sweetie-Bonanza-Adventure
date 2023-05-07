@@ -166,7 +166,7 @@ class GameViewController: UIViewController {
         } else {
             winSound?.play()
             presentCustomScene(winScene)
-            coinsCount += availableLevel * 1000
+            coinsCount += getCoins(for: availableLevel)
             availableLevel += 1
             saveGameSetup()
         }
@@ -176,6 +176,9 @@ class GameViewController: UIViewController {
         clickSound?.play()
     }
     
+    func getCoins(for level: Int) -> Int {
+        level * 1000
+    }
     
     // MARK: Private methods
     private func setupAudio() {

@@ -58,7 +58,7 @@ class WinScene: BaseScene {
         restartButton.position = CGPoint(x: frame.maxX - 140, y: menuButton.position.y)
         addChild(restartButton)
         
-        let plusAmountLabel = SKLabelNode(text: "+" + String(getPlusAmount()))
+        let plusAmountLabel = SKLabelNode(text: "+" + String(gameController.getCoins(for: level)))
         plusAmountLabel.fontName = Resources.Fonts.RifficFree_Bold
         plusAmountLabel.fontColor = UIColor(named: Resources.Colors.font)
         plusAmountLabel.fontSize = 30
@@ -95,9 +95,5 @@ class WinScene: BaseScene {
         continueToWinButton.name = Resources.Buttons.continueToWin
         continueToWinButton.position = CGPoint(x: plusAmountLabel.position.x, y: plusAmountLabel.position.y - 120)
         addChild(continueToWinButton)
-    }
-    
-    private func getPlusAmount() -> Int {
-        level * 1000
     }
 }
