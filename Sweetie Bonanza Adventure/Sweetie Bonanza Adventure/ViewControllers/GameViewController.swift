@@ -9,7 +9,6 @@ import SpriteKit
 import AVFoundation
 
 class GameViewController: UIViewController {
-    // MARK: Propertys
     // MARK: Game state & settings propertys
     var isSoundMuted = false {
         didSet {
@@ -35,17 +34,17 @@ class GameViewController: UIViewController {
     }
     var lifesCount = 5 {
         didSet {
-            menuScene.lifesCount.text = String(lifesCount)
-            dailyBonusScene.lifesCount.text = String(lifesCount)
-            storeScene.lifesCount.text = String(lifesCount)
-            gameScene.lifesCount.text = String(lifesCount)
+            menuScene.lifesCountLabel.text = String(lifesCount)
+            dailyBonusScene.lifesCountLabel.text = String(lifesCount)
+            storeScene.lifesCountLabel.text = String(lifesCount)
+            gameScene.lifesCountLabel.text = String(lifesCount)
         }
     }
     var coinsCount = 0 {
         didSet {
-            menuScene.coinsCount.text = String(coinsCount)
-            dailyBonusScene.coinsCount.text = String(coinsCount)
-            storeScene.coinsCount.text = String(coinsCount)
+            menuScene.coinsCountLabel.text = String(coinsCount)
+            dailyBonusScene.coinsCountLabel.text = String(coinsCount)
+            storeScene.coinsCountLabel.text = String(coinsCount)
         }
     }
     var availableLevel = 1 {

@@ -8,6 +8,8 @@
 import SpriteKit
 
 class DailyBonusScene: BaseScene {
+    var lifesCountLabel = SKLabelNode()
+    var coinsCountLabel = SKLabelNode()
     var isBonusClaimed = false {
         didSet {
             if isBonusClaimed {
@@ -15,8 +17,6 @@ class DailyBonusScene: BaseScene {
             }
         }
     }
-    var lifesCount = SKLabelNode()
-    var coinsCount = SKLabelNode()
     
     private var claimButtons = [SKSpriteNode]()
     private var claimAmount = [Resources.Labels.smallCandy, Resources.Labels.mediumCandy, Resources.Labels.largeCandy]
@@ -68,21 +68,21 @@ class DailyBonusScene: BaseScene {
         lifesLabel.position = CGPoint(x: menuButton.frame.maxX + 3, y: menuButton.position.y - 55)
         addChild(lifesLabel)
         
-        lifesCount = SKLabelNode(text: String(gameController.lifesCount))
-        lifesCount.fontName = Resources.Fonts.RifficFree_Bold
-        lifesCount.fontSize = 35
-        lifesCount.horizontalAlignmentMode = .right
-        lifesCount.position = CGPoint(x: lifesLabel.frame.maxX - 12, y: lifesLabel.frame.midY - 15)
-        lifesCount.zPosition = 1
-        addChild(lifesCount)
+        lifesCountLabel = SKLabelNode(text: String(gameController.lifesCount))
+        lifesCountLabel.fontName = Resources.Fonts.RifficFree_Bold
+        lifesCountLabel.fontSize = 35
+        lifesCountLabel.horizontalAlignmentMode = .right
+        lifesCountLabel.position = CGPoint(x: lifesLabel.frame.maxX - 12, y: lifesLabel.frame.midY - 15)
+        lifesCountLabel.zPosition = 1
+        addChild(lifesCountLabel)
         
-        coinsCount = SKLabelNode(text: String(gameController.coinsCount))
-        coinsCount.fontName = Resources.Fonts.RifficFree_Bold
-        coinsCount.fontSize = 35
-        coinsCount.horizontalAlignmentMode = .right
-        coinsCount.position = CGPoint(x: coinsLabel.frame.maxX - 12, y: coinsLabel.frame.midY - 15)
-        coinsCount.zPosition = 1
-        addChild(coinsCount)
+        coinsCountLabel = SKLabelNode(text: String(gameController.coinsCount))
+        coinsCountLabel.fontName = Resources.Fonts.RifficFree_Bold
+        coinsCountLabel.fontSize = 35
+        coinsCountLabel.horizontalAlignmentMode = .right
+        coinsCountLabel.position = CGPoint(x: coinsLabel.frame.maxX - 12, y: coinsLabel.frame.midY - 15)
+        coinsCountLabel.zPosition = 1
+        addChild(coinsCountLabel)
         
         let claimGiftButton2 = SKSpriteNode(imageNamed: Resources.Buttons.claimGift)
         claimGiftButton2.name = Resources.Buttons.claimGift + "2"

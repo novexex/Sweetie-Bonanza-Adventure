@@ -9,7 +9,7 @@ import SpriteKit
 
 class GameScene: BaseScene {
     let level: Int
-    var lifesCount = SKLabelNode()
+    var lifesCountLabel = SKLabelNode()
     private var tilesBoard = SKSpriteNode()
     private var tiles = [[SKSpriteNode]]()
     private lazy var tilesBackgroundLine = Array(repeating: SKSpriteNode(), count: level+4)
@@ -129,13 +129,13 @@ class GameScene: BaseScene {
         lifesLabel.position = CGPoint(x: menuButton.frame.maxX + 3, y: menuButton.position.y - 55)
         addChild(lifesLabel)
         
-        lifesCount = SKLabelNode(text: String(gameController.lifesCount))
-        lifesCount.fontName = Resources.Fonts.RifficFree_Bold
-        lifesCount.fontSize = 35
-        lifesCount.horizontalAlignmentMode = .right
-        lifesCount.position = CGPoint(x: lifesLabel.frame.maxX - 12, y: lifesLabel.frame.midY - 15)
-        lifesCount.zPosition = 1
-        addChild(lifesCount)
+        lifesCountLabel = SKLabelNode(text: String(gameController.lifesCount))
+        lifesCountLabel.fontName = Resources.Fonts.RifficFree_Bold
+        lifesCountLabel.fontSize = 35
+        lifesCountLabel.horizontalAlignmentMode = .right
+        lifesCountLabel.position = CGPoint(x: lifesLabel.frame.maxX - 12, y: lifesLabel.frame.midY - 15)
+        lifesCountLabel.zPosition = 1
+        addChild(lifesCountLabel)
         
         let restartButton = SKSpriteNode(imageNamed: Resources.Buttons.bigRestart)
         if let size = restartButton.texture?.size() {
