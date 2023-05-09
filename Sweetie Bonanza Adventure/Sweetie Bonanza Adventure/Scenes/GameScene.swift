@@ -213,21 +213,7 @@ class GameScene: BaseScene {
         for i in tilesBackgroundLine.indices {
             let tileLine = SKSpriteNode(imageNamed: tilesImage[i])
             tileLine.name = tilesImage[i]
-            if tilesImage[i] == Resources.Tiles.bomb {
-                if let size = tileLine.texture?.size() {
-                    if level == 6 {
-                        tileLine.size = CGSize(width: size.width * 0.5, height: size.height * 0.5)
-                    } else {
-                        tileLine.size = CGSize(width: size.width * 0.5, height: size.height * 0.5)
-                    }
-                }
-            } else if tilesImage[i] == Resources.Tiles.moon {
-                if let size = tileLine.texture?.size() {
-                    tileLine.size = CGSize(width: size.width * 1.15, height: size.height * 1.15)
-                }
-            } else {
-                tileLine.size = getTileSizeOnLine(node: tileLine)
-            }
+            tileLine.size = getTileSizeOnLine(node: tileLine)
             tileLine.position = CGPoint(x: tilesBackgroundLine[i].frame.midX, y: tilesBackgroundLine[i].frame.midY)
             tilesLine[i] = tileLine
             addChild(tileLine)
@@ -261,15 +247,15 @@ class GameScene: BaseScene {
         if let size = node.texture?.size() {
             switch level {
             case 1, 2:
-                returnSize = CGSize(width: size.width, height: size.height)
+                returnSize = CGSize(width: size.width * 1.4, height: size.height * 1.4)
             case 3:
-                returnSize = CGSize(width: size.width * 0.9, height: size.height * 0.9)
+                returnSize = CGSize(width: size.width * 1.2, height: size.height * 1.2)
             case 4:
-                returnSize = CGSize(width: size.width * 0.8, height: size.height * 0.8)
+                returnSize = CGSize(width: size.width * 1.1, height: size.height * 1.1)
             case 5:
-                returnSize = CGSize(width: size.width * 0.72, height: size.height * 0.72)
+                returnSize = CGSize(width: size.width, height: size.height)
             case 6, 7:
-                returnSize = CGSize(width: size.width * 0.7, height: size.height * 0.7)
+                returnSize = CGSize(width: size.width * 0.9, height: size.height * 0.9)
             default: break
             }
         }
