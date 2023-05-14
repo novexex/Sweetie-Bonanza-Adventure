@@ -1,8 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "menu&shopBackground.png",
-      "idiom" : "universal"
+      "filename" : "mainBackground.pdf",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
     }
   ],
   "info" : {
