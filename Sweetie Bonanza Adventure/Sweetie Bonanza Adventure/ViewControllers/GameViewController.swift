@@ -77,15 +77,21 @@ class GameViewController: UIViewController {
     private weak var currentScene: BaseScene!
     
     private let backgroundImageView = UIImageView()
+    private let spiralImageView = UIImageView()
+    private let candyImageView = UIImageView()
+    private let cloudsImageView = UIImageView()
     
     // MARK: Override methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
         animation()
- 
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
             self.backgroundImageView.removeFromSuperview()
+            self.spiralImageView.removeFromSuperview()
+            self.candyImageView.removeFromSuperview()
+            self.cloudsImageView.removeFromSuperview()
             self.setupAlerts()
             self.setupGame()
             self.setupAudio()
@@ -204,9 +210,43 @@ class GameViewController: UIViewController {
     // MARK: Private methods
     private func animation() {
         backgroundImageView.image = UIImage(named: "splashBackground")
-        backgroundImageView.contentMode = .scaleAspectFill
+        backgroundImageView.contentMode = .scaleAspectFit
+        backgroundImageView.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 2)
         backgroundImageView.frame = view.frame
         view.addSubview(backgroundImageView)
+        
+        // Set up spiral image view
+        spiralImageView.image = UIImage(named: "splashSpiral")
+        spiralImageView.contentMode = .scaleAspectFit
+        spiralImageView.frame = CGRect(x: view.frame.midX - 150, y: view.frame.midY - 150, width: 300, height: 300)
+        
+        view.addSubview(spiralImageView)
+        
+        // Set up candy image view
+        candyImageView.image = UIImage(named: "splashBall")
+        candyImageView.contentMode = .scaleAspectFit
+        candyImageView.transform = CGAffineTransform(rotationAngle: CGFloat.pi * 1.5)
+        candyImageView.frame = CGRect(x: view.frame.midX - 75, y: view.frame.midY - 80, width: 150, height: 150)
+        view.addSubview(candyImageView)
+        
+        // Create rotation animation
+        let rotationAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
+        rotationAnimation.toValue = NSNumber(value: Double.pi * 2)
+        rotationAnimation.duration = 1.5
+        rotationAnimation.isCumulative = true
+        rotationAnimation.repeatCount = Float.infinity
+        
+        // Add rotation animation to spiral image view
+        spiralImageView.layer.add(rotationAnimation, forKey: "rotationAnimation")
+        
+        cloudsImageView.image = UIImage(named: "splashClouds")
+        cloudsImageView.contentMode = .scaleAspectFit
+        cloudsImageView.frame = CGRect(x: view.frame.midX, y: view.frame.minY, width: 400, height: view.frame.width)
+        cloudsImageView.center.x = view.center.x
+        cloudsImageView.center.y = view.center.y
+        cloudsImageView.transform = CGAffineTransform(rotationAngle: CGFloat.pi * 1.5)
+        cloudsImageView.layer.position = CGPoint(x: cloudsImageView.layer.position.x + 250, y: cloudsImageView.layer.position.y)
+        view.addSubview(cloudsImageView)
     }
     
     private func setupAudio() {
